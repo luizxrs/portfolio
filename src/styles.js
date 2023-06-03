@@ -24,6 +24,7 @@ const gradientTitleAnimation = keyframes`
 `;
 
 export const Main = styled.div`
+  overflow: hidden;
   section {
     min-height: 100vh;
     max-width: 100vw;
@@ -97,14 +98,14 @@ export const HomeWrapper = styled.div`
 `;
 
 export const HomeContentWrapper = styled.div`
-  width: 85vw;
-  height: 60vh;
   display: flex;
   justify-content: space-between;
+  gap: 3vw;
 `;
 
 export const HomeLeftSide = styled.div`
-  width: 40vw;
+  width: minmax(30rem, 40vw);
+  width: clamp(30rem, 40vw, 50rem);
   height: 100%;
   display: flex;
   justify-content: center;
@@ -112,8 +113,9 @@ export const HomeLeftSide = styled.div`
 `;
 
 export const HomeProfilePicture = styled.div`
-  width: min(50vw, 50vh);
-  height: min(50vw, 50vh);
+  width: clamp(30rem, 40vw, 50rem);
+  height: clamp(30rem, 40vw, 50rem);
+
   border-radius: 50%;
 
   transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1);
@@ -139,8 +141,8 @@ export const HomeProfilePicture = styled.div`
   }
 
   .image-container {
-    max-width: 97%;
-    max-height: 97%;
+    width: 97%;
+    height: 97%;
     position: relative;
     border-radius: 50%;
     overflow: hidden;
@@ -182,15 +184,13 @@ export const HomeProfilePicture = styled.div`
 `;
 
 export const HomeRightSide = styled.div`
-  width: 48vw;
+  width: 50vw;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 `;
 export const HomeContent = styled.div`
-  width: 48vw;
-
   .home-profission {
     font-weight: 500;
     color: white;
@@ -205,10 +205,9 @@ export const HomeContent = styled.div`
 
 export const HomeButtons = styled.div`
   height: 6rem;
-  width: 36rem;
+  /* width: clamp(10rem, 35vw, 36rem); */
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+
   margin-left: 40%;
   margin-bottom: -2rem;
   margin-top: 2rem;
@@ -225,10 +224,9 @@ export const ContactMeButton = styled.button`
   align-items: center;
   color: white;
   font-weight: 600;
-  font-size: 1.6rem;
+  font-size: clamp(1.2rem, 1.5vw, 1.6rem);
   letter-spacing: 0.05rem;
-  width: 45%;
-  min-width: 15rem;
+  width: clamp(12rem, 10vw, 30rem);
   z-index: 100;
   background: linear-gradient(
     180deg,
@@ -257,14 +255,16 @@ export const ContactWindowWrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
-  row-gap: 1rem;
+  gap: 1.5vw;
+  row-gap: 0;
   flex-wrap: wrap;
-  margin-top: 2.5rem;
+  margin-top: 15%;
+  width: 90%;
+  height: 60%;
 
   svg {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 1.5vw;
+    height: 1.5vw;
     color: ${colors.fourth};
     cursor: pointer;
 
@@ -290,6 +290,8 @@ export const ContactWindow = styled.div`
 
   position: absolute;
   top: 50%;
+  left: 0;
+  right: 0;
 `;
 
 export const DownloadCv = styled.button`
@@ -300,10 +302,11 @@ export const DownloadCv = styled.button`
   align-items: center;
   color: white;
   font-weight: 600;
-  font-size: 1.6rem;
   letter-spacing: 0.05rem;
-  width: 45%;
-  min-width: 15rem;
+  font-size: clamp(1.2rem, 1.5vw, 1.6rem);
+  letter-spacing: 0.05rem;
+  margin-left: 2rem;
+  width: clamp(12rem, 10vw, 30rem);
   background: #000000;
   box-shadow: 0px 0px 2.5rem 0.2rem rgba(100, 58, 218, 0.4);
   border-radius: 4rem;
@@ -485,21 +488,17 @@ export const ExperiencesTech = styled.div`
 
 export const ExperiencesIconsWrapper = styled.div`
   width: 100%;
-  height: 20vh;
   bottom: 0;
   position: absolute;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
-  row-gap: 3rem;
+  flex: 1 1 20vmin;
+  gap: 3vmin;
 `;
 
 export const ExperiencesIcon = styled.div`
   height: 20vmin;
   width: 20vmin;
-  
   margin: 0 auto;
   border-radius: 3rem;
   box-shadow: 0rem 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
@@ -510,7 +509,6 @@ export const ExperiencesIcon = styled.div`
   text-align: center;
   align-items: center;
   flex-direction: column;
-
   p {
     margin: 0;
     max-width: 18vh;
@@ -534,7 +532,8 @@ export const ExperiencesIcon = styled.div`
   position: relative;
 
   &:hover {
-    margin-top: -3rem;
+    margin-top: -2vmin;
+    margin-bottom: 2vmin;
     background-position-y: 100%;
   }
 
@@ -703,6 +702,7 @@ export const AboutContent = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  gap: 3rem;
 `;
 
 export const AboutText = styled.div`
@@ -718,6 +718,8 @@ export const AboutText = styled.div`
     letter-spacing: 0.2rem;
     transition: all 1s ${transitionPattern};
     text-shadow: 0 0 3rem ${colors.first};
+
+    font-size: clamp(1.5rem, 4vw, 6rem);
 
     &:hover {
       letter-spacing: 0.3rem;
@@ -743,7 +745,6 @@ export const AboutWindow = styled.div`
   background-position-y: 0%;
 
   .profile-wrapper {
-    min-width: 50vmin;
     height: 50vmin;
     overflow: hidden;
     position: relative;
@@ -751,7 +752,7 @@ export const AboutWindow = styled.div`
 
   img {
     position: absolute;
-    scale: 1.1;
+    width: 30vmin;
     bottom: -3rem;
     left: 4rem;
   }

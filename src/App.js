@@ -13,7 +13,6 @@ import {
   ExperiencesWrapper,
   AboutContent,
   AboutHeader,
-  AboutMeButton,
   AboutText,
   AboutTitle,
   AboutWindow,
@@ -65,11 +64,11 @@ import rightarrow from "./assets/svgs/rightarrow.svg";
 import profile from "./assets/imgs/profile.png";
 import { MdEmail } from "react-icons/md";
 import { BsWhatsapp, BsGithub, BsLinkedin, BsDiscord } from "react-icons/bs";
-import { useRef, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [fix, setFix] = useState(false);
-  const [activeLink, setActiveLink] = useState("");
+  const [activeLink, setActiveLink] = useState("home");
   const [contactWindow, setContactWindow] = useState(false);
 
   useEffect(() => {
