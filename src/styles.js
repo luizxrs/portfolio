@@ -34,15 +34,183 @@ export const Main = styled.div`
   }
 `;
 
+export const BurgerButton = styled.div`
+  visibility: hidden;
+
+  margin-left: 0rem;
+  grid-column-start: 4;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 2;
+
+  display: flex;
+  align-items: center;
+
+  height: ${(props) => (props.fix ? "7rem" : "10rem")};
+
+  color: white;
+  cursor: pointer;
+
+  svg {
+    min-height: 4rem;
+    min-width: 4rem;
+  }
+
+  @media (max-width: 800px) or (orientation: portrait) {
+    visibility: visible;
+  }
+`;
+
+export const StyledMenu = styled.div`
+  background: rgba(0, 0, 0, 0.8);
+  border-right: 1px solid ${colors.first};
+  box-shadow: 0 0 10rem rgba(0, 0, 0, 1);
+  backdrop-filter: blur(1rem);
+  font-size: 1.5rem;
+  width: 100%;
+  max-width: 30rem;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 999999;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  transition: 0.5s ease;
+  font-size: 2rem;
+  left: ${(props) => (props.isOpen ? "0" : "-30rem")};
+  box-shadow: ${(props) =>
+    props.isOpen ? "0 0 4rem rgba(0, 0, 0, .4)" : "none"};
+`;
+
+export const MenuItemsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8vh;
+
+  grid-row-start: 2;
+  grid-row-end: 2;
+
+  min-height: 100%;
+`;
+export const MenuHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+
+  width: 30rem;
+
+  .menu-header-wrapper {
+    padding: 2rem;
+    width: 100%;
+    height: 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+`;
+
+export const LogoPurpleMenu = styled.img`
+  max-width: 15rem;
+`;
+
+export const CloseMenuButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:nth-child(1) {
+    svg {
+      cursor: pointer;
+      width: 5rem;
+      height: 5rem;
+      color: white;
+    }
+  }
+`;
+
+export const ItemLink = styled.a`
+  text-decoration: none;
+  font-size: 2.2rem;
+  color: white;
+`;
+
+export const ItemIcon = styled.div`
+  margin-left: 1.5rem;
+  display: flex;
+  &:first-child {
+    transform: scale(1.5);
+  }
+`;
+
+export const MenuItems = styled.div`
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+  cursor: pointer;
+
+  min-height: 8rem;
+  min-width: 25rem;
+  border-radius: 3rem;
+
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 2rem;
+  align-items: center;
+
+  transition: all 0.5s ${transitionPattern};
+
+  &:hover {
+    background-color: ${colors.fifth};
+    box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
+
+    ${ItemLink} {
+      color: ${colors.first};
+    }
+  }
+`;
+
+export const CornerLogo = styled.div`
+  margin-left: 8rem;
+
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 2;
+  grid-row-end: 2;
+
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 800px) or (orientation: portrait) {
+    margin-left: 0rem;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+  }
+
+  img {
+    max-width: ${(props) => (props.fix ? `4rem` : "5rem")};
+    cursor: pointer;
+    width: 4rem;
+  }
+`;
+
 export const Header = styled.div`
   position: fixed;
   width: 100%;
   left: 50%;
   transform: translate(-50%);
-  height: 6.4rem;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   transition: all 0.5s ${transitionPattern};
   background-color: ${(props) =>
     props.fix ? "rgba(0, 0, 0, .4)" : "transparent"};
@@ -52,25 +220,40 @@ export const Header = styled.div`
   border-bottom: ${(props) =>
     props.fix ? `1px solid ${colors.first}` : "none"};
   box-shadow: ${(props) => (props.fix ? `0 0 5rem rgba(0, 0, 0, 1)` : "none")};
-`;
 
-export const CornerLogo = styled.div`
-  width: 15%;
+  .header-wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
 
-  img {
-    max-width: ${(props) => (props.fix ? `4rem` : "5rem")};
-    cursor: pointer;
+    @media (max-width: 800px) or (orientation: portrait) {
+      grid-template-columns: 10vw 1fr 60vw 1fr 10vw;
+    }
   }
 `;
+
 export const NavBar = styled.nav`
-  width: 60%;
-  padding-right: 15%;
+  min-width: 60%;
+
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 800px) or (orientation: portrait) {
+    visibility: hidden;
+  }
+
   .wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 3rem;
 
+    min-width: 100%;
     li {
       font-size: 1.8rem;
       list-style: none;
@@ -101,21 +284,34 @@ export const HomeContentWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 3vw;
+
+  @media (orientation: portrait) {
+    flex-direction: column;
+    align-items: center;
+    gap: 10vw;
+  }
 `;
 
 export const HomeLeftSide = styled.div`
-  width: minmax(30rem, 40vw);
   width: clamp(30rem, 40vw, 50rem);
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (orientation: portrait) {
+    width: clamp(30rem, 75vw, 75rem);
+  }
 `;
 
 export const HomeProfilePicture = styled.div`
   width: clamp(30rem, 40vw, 50rem);
   height: clamp(30rem, 40vw, 50rem);
 
+  @media (orientation: portrait) {
+    width: clamp(30rem, 75vw, 75rem);
+    height: clamp(30rem, 75vw, 75rem);
+  }
   border-radius: 50%;
 
   transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1);
@@ -185,6 +381,11 @@ export const HomeProfilePicture = styled.div`
 
 export const HomeRightSide = styled.div`
   width: 50vw;
+
+  @media (orientation: portrait) {
+    width: 75vw;
+  }
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -211,6 +412,11 @@ export const HomeButtons = styled.div`
   margin-left: 40%;
   margin-bottom: -2rem;
   margin-top: 2rem;
+
+  @media (orientation: portrait) {
+    margin: 8rem 0 -8rem 0;
+    width: 70vw;
+  }
 
   :first-child {
     position: relative;
@@ -243,6 +449,11 @@ export const ContactMeButton = styled.button`
   position: relative;
   outline: 0.3rem solid ${colors.first};
 
+  @media (orientation: portrait) {
+    width: 35vw;
+    font-size: clamp(1.2rem, 4vw, 2rem);
+  }
+
   &:hover {
     letter-spacing: 0.1rem;
     box-shadow: 0.4rem 0.8rem 2rem rgba(0, 0, 0, 0.3);
@@ -262,11 +473,22 @@ export const ContactWindowWrapper = styled.div`
   width: 90%;
   height: 60%;
 
+  @media (orientation: portrait) {
+    width: 90%;
+    gap: 4vw;
+    row-gap: 0;
+  }
+
   svg {
     width: 1.5vw;
     height: 1.5vw;
     color: ${colors.fourth};
     cursor: pointer;
+
+    @media (orientation: portrait) {
+      width: 5vw;
+      height: 5vw;
+    }
 
     &:hover {
       color: ${colors.first};
@@ -287,6 +509,10 @@ export const ContactWindow = styled.div`
   box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.5);
   transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1);
   z-index: 1;
+
+  @media (orientation: portrait) {
+    height: ${(props) => (props.isOpen ? "16rem" : "0")};
+  }
 
   position: absolute;
   top: 50%;
@@ -316,6 +542,11 @@ export const DownloadCv = styled.button`
 
   position: relative;
 
+  @media (orientation: portrait) {
+    width: 35vw;
+    font-size: clamp(1.2rem, 4vw, 2rem);
+  }
+
   &:before {
     content: "";
     position: absolute;
@@ -324,7 +555,7 @@ export const DownloadCv = styled.button`
     bottom: 0;
     left: 0;
     z-index: -1;
-    margin: -1.5px;
+    margin: -0.1vw;
     border-radius: inherit; /* !importanté */
     background: linear-gradient(130.68deg, #6339d9 0%, #331782 100.52%);
   }
@@ -363,10 +594,15 @@ export const HomeTitle = styled.h1`
 
 export const ExperiencesWrapper = styled.div`
   width: 90vw;
-  height: 75vh;
+  height: 70vh;
   color: white;
   position: relative;
   margin-top: 6.4rem;
+
+  @media (orientation: portrait) {
+    width: 75vw;
+    height: 85vh;
+  }
 `;
 
 export const PurpleTint = styled.span`
@@ -389,6 +625,11 @@ export const ExperiencesTitle = styled.h2`
     left: 0;
     width: 5rem;
     height: 0.3rem;
+
+    @media (orientation: portrait) {
+      height: 0.4rem;
+    }
+
     border-right: 10rem solid ${colors.fourth};
     box-shadow: 0 0 3rem 0.1rem ${colors.first};
     background-color: ${colors.first};
@@ -401,6 +642,11 @@ export const ExperiencesContent = styled.div`
   grid-template-rows: 15rem 15rem;
   grid-column-gap: 6%;
   text-align: justify;
+
+  @media (orientation: portrait) {
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
 
   h4 {
     font-weight: 700;
@@ -420,6 +666,10 @@ export const ExperiencesContent = styled.div`
     grid-column-end: 2;
     line-height: 2.5rem;
     margin-left: 8rem;
+
+    @media (orientation: portrait) {
+      font-size: 1.5rem;
+    }
   }
 `;
 
@@ -432,10 +682,20 @@ export const ExperiencesLogic = styled.div`
     margin-left: 13rem;
   }
 
-  /* display: grid;
-  grid-template-columns: 8vw 82vw;
-  grid-template-rows: 20% 70%;
- */
+  @media (orientation: portrait) {
+    h4 {
+      margin-left: 8rem;
+    }
+
+    p {
+      margin-left: 8rem;
+    }
+    grid-row-start: 1;
+    grid-row-end: 1;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
   grid-row-start: 1;
   grid-row-end: 1;
   grid-column-start: 1;
@@ -448,10 +708,22 @@ export const ExperiencesLogicIcon = styled.div`
     width: 10rem;
     filter: drop-shadow(0 0 1rem ${colors.first});
   }
+
   grid-row-start: 1;
   grid-row-end: 2;
   grid-column-start: 1;
   grid-column-end: 1;
+
+  @media (orientation: portrait) {
+    grid-row-start: unset;
+    grid-row-end: unset;
+    grid-column-start: unset;
+    grid-column-end: unset;
+
+    img {
+      width: 5rem;
+    }
+  }
 `;
 export const ExperiencesDesignIcon = styled.div`
   img {
@@ -484,22 +756,32 @@ export const ExperiencesTech = styled.div`
   grid-row-end: 2;
   grid-column-start: 2;
   grid-column-end: 3;
+
+  @media (orientation: portrait) {
+    grid-row-start: 3;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 1;
+  }
 `;
 
 export const ExperiencesIconsWrapper = styled.div`
   width: 100%;
-  bottom: 0;
   position: absolute;
+  bottom: 0;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  flex: 1 1 20vmin;
-  gap: 3vmin;
+  gap: 2vmin;
+
+  @media (orientation: portrait) {
+    gap: 2vmin;
+  }
 `;
 
 export const ExperiencesIcon = styled.div`
-  height: 20vmin;
-  width: 20vmin;
-  margin: 0 auto;
+  height: clamp(10rem, 11vw, 40rem);
+  width: clamp(10rem, 11vw, 40rem);
   border-radius: 3rem;
   box-shadow: 0rem 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
   display: flex;
@@ -509,13 +791,24 @@ export const ExperiencesIcon = styled.div`
   text-align: center;
   align-items: center;
   flex-direction: column;
+
+  @media (orientation: portrait) {
+    height: clamp(10rem, 17vw, 40rem);
+    width: clamp(10rem, 17vw, 40rem);
+  }
+
   p {
     margin: 0;
-    max-width: 18vh;
+    max-width: 9vw;
+
+    @media (orientation: portrait) {
+      font-size: 1.1rem;
+    }
   }
 
   img {
-    max-height: 30%;
+    min-height: 4rem;
+    max-height: 4rem;
   }
 
   background: linear-gradient(
@@ -535,6 +828,11 @@ export const ExperiencesIcon = styled.div`
     margin-top: -2vmin;
     margin-bottom: 2vmin;
     background-position-y: 100%;
+
+    @media (orientation: portrait) {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
   }
 
   &:before {
@@ -545,7 +843,7 @@ export const ExperiencesIcon = styled.div`
     bottom: 0;
     left: 0;
     z-index: -1;
-    margin: -1.5px;
+    margin: -0.1vw;
     border-radius: inherit;
     background: linear-gradient(130.68deg, #6339d9 0%, #331782 100.52%);
   }
@@ -559,6 +857,10 @@ export const ProjectsWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   margin-top: 6.4rem;
+
+  @media (orientation: portrait) {
+    width: 75vw;
+  }
 `;
 
 export const ProjectsHeader = styled.div``;
@@ -589,6 +891,12 @@ export const ProjectsContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (orientation: portrait) {
+    flex-direction: column;
+    justify-content: center;
+    width: inherit;
+  }
 `;
 export const ProjectsWindow = styled.div`
   border-radius: 3rem;
@@ -619,13 +927,12 @@ export const ProjectsWindow = styled.div`
     bottom: 0;
     left: 0;
     z-index: -1;
-    margin: -1.5px;
+    margin: -0.1vw;
     border-radius: inherit;
     background: linear-gradient(130.68deg, #6339d9 0%, #331782 100.52%);
   }
 `;
-
-export const ProjectsArrows = styled.div`
+export const ProjectsArrowRight = styled.div`
   width: 6rem;
   height: 6rem;
   border-radius: 50%;
@@ -634,6 +941,15 @@ export const ProjectsArrows = styled.div`
   align-items: center;
   cursor: pointer;
   position: relative;
+
+  @media (orientation: portrait) {
+    order: 1;
+    margin-left: 10rem;
+    margin-bottom: 2rem;
+    margin-top: -2rem;
+    width: 8rem;
+    height: 8rem;
+  }
 
   box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.5);
   background: linear-gradient(
@@ -658,7 +974,54 @@ export const ProjectsArrows = styled.div`
     bottom: 0;
     left: 0;
     z-index: -1;
-    margin: -1.5px;
+    margin: -0.1vw;
+    border-radius: inherit;
+    background: linear-gradient(130.68deg, #6339d9 0%, #331782 100.52%);
+  }
+`;
+export const ProjectsArrowLeft = styled.div`
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+
+  @media (orientation: portrait) {
+    order: 1;
+    margin-right: 10rem;
+    margin-bottom: -5rem;
+    margin-top: 5rem;
+    width: 8rem;
+    height: 8rem;
+  }
+
+  box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.5);
+  background: linear-gradient(
+    180deg,
+    ${colors.sixth} 0%,
+    ${colors.fifth} 33%,
+    ${colors.fourth} 66%,
+    ${colors.third} 100%
+  );
+  background-size: 100% 140%;
+  background-position-y: 0%;
+
+  &:hover {
+    background-position-y: 100%;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -0.1vw;
     border-radius: inherit;
     background: linear-gradient(130.68deg, #6339d9 0%, #331782 100.52%);
   }
@@ -672,6 +1035,10 @@ export const AboutWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   margin-top: 6.4rem;
+
+  @media (orientation: portrait) {
+    width: 75vw;
+  }
 `;
 
 export const AboutHeader = styled.div``;
@@ -703,6 +1070,12 @@ export const AboutContent = styled.div`
   justify-content: space-around;
   align-items: center;
   gap: 3rem;
+
+  @media (orientation: portrait) {
+    width: 75vw;
+    flex-direction: column;
+    gap: 10rem;
+  }
 `;
 
 export const AboutText = styled.div`
@@ -712,6 +1085,14 @@ export const AboutText = styled.div`
   max-width: 45%;
   line-height: 3rem;
 
+  @media (orientation: portrait) {
+    max-width: 75vw;
+
+    p {
+      font-size: 2rem;
+    }
+  }
+
   h1 {
     font-weight: 700;
     margin-bottom: 5rem;
@@ -720,6 +1101,10 @@ export const AboutText = styled.div`
     text-shadow: 0 0 3rem ${colors.first};
 
     font-size: clamp(1.5rem, 4vw, 6rem);
+
+    @media (orientation: portrait) {
+      font-size: clamp(1.5rem, 8vw, 10rem);
+    }
 
     &:hover {
       letter-spacing: 0.3rem;
@@ -743,6 +1128,10 @@ export const AboutWindow = styled.div`
   );
   background-size: 100% 140%;
   background-position-y: 0%;
+
+  @media (orientation: portrait) {
+    order: 2;
+  }
 
   .profile-wrapper {
     height: 50vmin;
@@ -773,7 +1162,7 @@ export const AboutWindow = styled.div`
     bottom: 0;
     left: 0;
     z-index: -1;
-    margin: -1.5px;
+    margin: -0.1vw;
     border-radius: inherit;
     background: linear-gradient(
       180deg,
@@ -791,7 +1180,7 @@ export const AboutWindow = styled.div`
     bottom: -3rem;
     left: -3rem;
     z-index: -1;
-    margin: -1.5px;
+    margin: -0.1vw;
     border-radius: inherit;
     border: 0.3rem solid rgba(100, 58, 218, 1);
   }

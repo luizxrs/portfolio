@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     :root {
-        font-size: 62.5%;
+        font-size: 40%;
 
         
     @media only screen and (min-width: 4000px) {
@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
             font-size: 100%;
     }
     
-    @media (min-width: 1920px) and (max-width: 2200px) {
+    @media (min-width: 1920px) and (max-width: 2020px) {
             font-size: 65%;
     }
 
@@ -39,9 +39,8 @@ const GlobalStyle = createGlobalStyle`
             font-size: 45%;
     }
     
-
     @media (min-width: 768px) and (max-width: 1023px) {
-            font-size: 50%;
+            font-size: 40%;
     }
 
 
