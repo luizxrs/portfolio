@@ -13,7 +13,6 @@ import {
   ExperiencesWrapper,
   AboutContent,
   AboutHeader,
-  AboutMeButton,
   AboutText,
   AboutTitle,
   AboutWindow,
@@ -32,7 +31,6 @@ import {
   Main,
   NavBar,
   NavLink,
-  ProjectsArrows,
   ProjectsContent,
   ProjectsHeader,
   ProjectsTitle,
@@ -47,6 +45,16 @@ import {
   FooterIcons,
   ContactWindow,
   ContactWindowWrapper,
+  ProjectsArrowLeft,
+  ProjectsArrowRight,
+  BurgerButton,
+  StyledMenu,
+  MenuHeader,
+  CloseMenuButton,
+  MenuItemsWrapper,
+  MenuItems,
+  ItemLink,
+  LogoPurpleMenu,
 } from "./styles";
 import GlobalStyle from "./globalStyle";
 import whitelogo from "./assets/imgs/whitelogo.png";
@@ -63,14 +71,18 @@ import style from "./assets/svgs/style.svg";
 import leftarrow from "./assets/svgs/leftarrow.svg";
 import rightarrow from "./assets/svgs/rightarrow.svg";
 import profile from "./assets/imgs/profile.png";
+import purpleFullLogo from "./assets/svgs/purple-full-logo.svg";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { IoMdClose } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
 import { BsWhatsapp, BsGithub, BsLinkedin, BsDiscord } from "react-icons/bs";
-import { useRef, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [fix, setFix] = useState(false);
-  const [activeLink, setActiveLink] = useState("");
+  const [activeLink, setActiveLink] = useState("home");
   const [contactWindow, setContactWindow] = useState(false);
+  const [openBurger, setOpenBurger] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -103,6 +115,10 @@ function App() {
     };
   }, []);
 
+  const handleToggle = () => {
+    setOpenBurger(!openBurger);
+  };
+
   const setFixed = () => {
     if (window.scrollY > 10) {
       setFix(true);
@@ -117,48 +133,71 @@ function App() {
     <>
       <GlobalStyle />
       <Main>
+        <StyledMenu isOpen={openBurger}>
+          <MenuHeader>
+            <div className="menu-header-wrapper">
+              <CloseMenuButton>
+                <IoMdClose onClick={() => setOpenBurger(false)} />
+              </CloseMenuButton>
+              <LogoPurpleMenu
+                src={purpleFullLogo}
+                alt="Imagem da Logo No Menu"
+              ></LogoPurpleMenu>
+            </div>
+          </MenuHeader>
+          <MenuItemsWrapper>
+            <MenuItems>
+              <ItemLink onClick={() => setOpenBurger(false)} href="#home">Home</ItemLink>
+            </MenuItems>
+            <MenuItems >
+              <ItemLink onClick={() => setOpenBurger(false)} href="#experiences">Habilidades</ItemLink>
+            </MenuItems>
+            <MenuItems >
+              <ItemLink onClick={() => setOpenBurger(false)} href="#projects">Meus Projetos</ItemLink>
+            </MenuItems>
+            <MenuItems >
+              <ItemLink onClick={() => setOpenBurger(false)} href="#about">Sobre mim</ItemLink>
+            </MenuItems>
+          </MenuItemsWrapper>
+        </StyledMenu>
         <Header fix={fix}>
-          <CornerLogo fix={fix}>
-            <a href="#home">
-              <img src={whitelogo} alt="Logo"></img>
-            </a>
-          </CornerLogo>
-          <NavBar currentTab={true}>
-            <ul className="wrapper">
-              <li>
-                <NavLink
-                  href="#home"
-                  active={activeLink === "home"}
-                >
-                  Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  href="#experiences"
-                  active={activeLink === "experiences"}
-                >
-                  Habilidades
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  href="#projects"
-                  active={activeLink === "projects"}
-                >
-                  Projetos
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  href="#about"
-                  active={activeLink === "about"}
-                >
-                  Sobre mim
-                </NavLink>
-              </li>
-            </ul>
-          </NavBar>
+          <div className="header-wrapper">
+            <CornerLogo fix={fix}>
+              <a href="#home">
+                <img src={whitelogo} alt="Logo"></img>
+              </a>
+            </CornerLogo>
+            <BurgerButton fix={fix} onClick={handleToggle}>
+              <RxHamburgerMenu />
+            </BurgerButton>
+            <NavBar>
+              <ul className="wrapper">
+                <li>
+                  <NavLink href="#home" active={activeLink === "home"}>
+                    Home
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    href="#experiences"
+                    active={activeLink === "experiences"}
+                  >
+                    Habilidades
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink href="#projects" active={activeLink === "projects"}>
+                    Projetos
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink href="#about" active={activeLink === "about"}>
+                    Sobre mim
+                  </NavLink>
+                </li>
+              </ul>
+            </NavBar>
+          </div>
         </Header>
 
         <section id="home">
@@ -316,13 +355,13 @@ function App() {
               </ProjectsTitle>
             </ProjectsHeader>
             <ProjectsContent>
-              <ProjectsArrows>
+              <ProjectsArrowLeft>
                 <img src={leftarrow} alt="Seta para esquerda"></img>
-              </ProjectsArrows>
+              </ProjectsArrowLeft>
               <ProjectsWindow></ProjectsWindow>
-              <ProjectsArrows>
+              <ProjectsArrowRight>
                 <img src={rightarrow} alt="Seta para direita"></img>
-              </ProjectsArrows>
+              </ProjectsArrowRight>
             </ProjectsContent>
           </ProjectsWrapper>
         </section>

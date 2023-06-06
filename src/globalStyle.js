@@ -12,7 +12,41 @@ const GlobalStyle = createGlobalStyle`
     }
 
     :root {
-        font-size: 62.5%;
+        font-size: 40%;
+
+        
+    @media only screen and (min-width: 4000px) {
+            font-size: 150%;
+    }
+
+    @media (min-width: 3001px) and (max-width: 4000px) {
+            font-size: 130%;
+    }
+
+    @media (min-width: 2021px) and (max-width: 3000px) {
+            font-size: 100%;
+    }
+    
+    @media (min-width: 1920px) and (max-width: 2020px) {
+            font-size: 65%;
+    }
+
+    @media (min-width: 1440px) and (max-width: 1919px) {
+            font-size: 55%;
+    }
+    
+    @media (min-width: 1024px) and (max-width: 1439px) {
+            font-size: 45%;
+    }
+    
+    @media (min-width: 768px) and (max-width: 1023px) {
+            font-size: 40%;
+    }
+
+
+    @media (min-width: 414px) and (max-width: 767px) {
+            font-size: 40%;
+    }
     }
 
     body {
@@ -60,31 +94,6 @@ const GlobalStyle = createGlobalStyle`
         font-size: 1.6rem;
     }
 
-    @media only screen and (min-width: 1920px) {
-        :root {
-            font-size: 65%;
-        }
-    }
-
-    @media (min-width: 1024px) and (max-width: 1919px) {
-        :root {
-            font-size: 55%;
-        }
-    }
-    
-
-    @media (min-width: 768px) and (max-width: 1023px) {
-        :root {
-            font-size: 50%;
-        }
-    }
-
-
-    @media (min-width: 414px) and (max-width: 767px) {
-        :root {
-            font-size: 40%;
-        }
-    }
 `;
 
 export default GlobalStyle;
