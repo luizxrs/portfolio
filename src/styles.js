@@ -56,7 +56,7 @@ export const BurgerButton = styled.div`
     min-width: 4rem;
   }
 
-  @media (max-width: 800px) or (orientation: portrait) {
+  @media (orientation: portrait) {
     visibility: visible;
   }
 `;
@@ -186,7 +186,7 @@ export const CornerLogo = styled.div`
   display: flex;
   align-items: center;
 
-  @media (max-width: 800px) or (orientation: portrait) {
+  @media (orientation: portrait) {
     margin-left: 0rem;
     grid-column-start: 2;
     grid-column-end: 2;
@@ -226,7 +226,7 @@ export const Header = styled.div`
     display: grid;
     grid-template-columns: 20% 60% 20%;
 
-    @media (max-width: 800px) or (orientation: portrait) {
+    @media (orientation: portrait) {
       grid-template-columns: 10vw 1fr 60vw 1fr 10vw;
     }
   }
@@ -243,7 +243,7 @@ export const NavBar = styled.nav`
   display: flex;
   align-items: center;
 
-  @media (max-width: 800px) or (orientation: portrait) {
+  @media (orientation: portrait) {
     visibility: hidden;
   }
 
@@ -684,7 +684,7 @@ export const ExperiencesLogic = styled.div`
     margin-left: 13rem;
   }
 
-  @media (max-width: 800px) or (orientation: portrait) {
+  @media (orientation: portrait) {
     h4 {
       margin-left: 8rem;
     }
