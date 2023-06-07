@@ -643,6 +643,8 @@ export const ExperiencesContent = styled.div`
   grid-column-gap: 6%;
   text-align: justify;
 
+  background-color: red;
+  
   @media (orientation: portrait) {
     grid-template-columns: 100%;
     grid-template-rows: 1fr 1fr 1fr;
@@ -682,7 +684,7 @@ export const ExperiencesLogic = styled.div`
     margin-left: 13rem;
   }
 
-  @media (orientation: portrait) {
+  @media (max-width: 800px) or (orientation: portrait) {
     h4 {
       margin-left: 8rem;
     }
