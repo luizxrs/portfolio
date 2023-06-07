@@ -734,6 +734,7 @@ export const ExperiencesDesignIcon = styled.div`
     filter: drop-shadow(0 0 1rem ${colors.first});
   }
 `;
+
 export const ExperiencesTechIcon = styled.div`
   img {
     position: absolute;
