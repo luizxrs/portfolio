@@ -27,6 +27,7 @@ export const Main = styled.div`
   overflow: hidden;
   section {
     min-height: 100vh;
+    max-height: 100vh;
     max-width: 100vw;
     display: flex;
     justify-content: center;
@@ -63,9 +64,10 @@ export const BurgerButton = styled.div`
 
 export const StyledMenu = styled.div`
   background: rgba(0, 0, 0, 0.8);
-  border-right: 1px solid ${colors.first};
+  border-right: ${(props) => (props.isOpen ? `1px solid ${colors.first}` : "none")};
   box-shadow: 0 0 10rem rgba(0, 0, 0, 1);
   backdrop-filter: blur(1rem);
+  will-change: transform;
   font-size: 1.5rem;
   width: 100%;
   max-width: 30rem;
@@ -217,6 +219,7 @@ export const Header = styled.div`
   height: ${(props) => (props.fix ? "6.4rem" : "10rem")};
   z-index: 9999;
   backdrop-filter: ${(props) => (props.fix ? "blur(2rem)" : "none")};
+  will-change: transform;
   border-bottom: ${(props) =>
     props.fix ? `1px solid ${colors.first}` : "none"};
   box-shadow: ${(props) => (props.fix ? `0 0 5rem rgba(0, 0, 0, 1)` : "none")};
@@ -274,7 +277,8 @@ export const NavLink = styled.a`
 export const HomeWrapper = styled.div`
   text-align: justify;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+    max-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -643,8 +647,6 @@ export const ExperiencesContent = styled.div`
   grid-column-gap: 6%;
   text-align: justify;
 
-  background-color: red;
-
   @media (orientation: portrait) {
     grid-template-columns: 100%;
     grid-template-rows: 1fr 1fr 1fr;
@@ -670,7 +672,7 @@ export const ExperiencesContent = styled.div`
     margin-left: 8rem;
 
     @media (orientation: portrait) {
-      font-size: 1.5rem;
+      font-size: clamp(1rem, 1.2vh, 1.5rem);
     }
   }
 `;
@@ -683,7 +685,6 @@ export const ExperiencesLogic = styled.div`
   h4 {
     margin-left: 13rem;
 
-    
     @media (orientation: portrait) {
       margin-left: 8rem;
     }
