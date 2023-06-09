@@ -64,7 +64,8 @@ export const BurgerButton = styled.div`
 
 export const StyledMenu = styled.div`
   background: rgba(0, 0, 0, 0.8);
-  border-right: ${(props) => (props.isOpen ? `1px solid ${colors.first}` : "none")};
+  border-right: ${(props) =>
+    props.isOpen ? `1px solid ${colors.first}` : "none"};
   box-shadow: 0 0 10rem rgba(0, 0, 0, 1);
   backdrop-filter: blur(1rem);
   will-change: transform;
@@ -246,7 +247,7 @@ export const NavBar = styled.nav`
   display: flex;
   align-items: center;
 
-  @media (max-width: 800px) or (orientation: portrait) {
+  @media (orientation: portrait) {
     visibility: hidden;
   }
 
@@ -278,7 +279,7 @@ export const HomeWrapper = styled.div`
   text-align: justify;
   width: 100%;
   min-height: 100vh;
-    max-height: 100vh;
+  max-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -607,7 +608,6 @@ export const ExperiencesWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
-
   @media (orientation: portrait) {
     width: 75vw;
     height: 85vh;
@@ -619,8 +619,7 @@ export const PurpleTint = styled.span`
   text-shadow: 0 0 3rem ${colors.first};
 `;
 
-export const ExperiencesHeader = styled.div`
-`;
+export const ExperiencesHeader = styled.div``;
 export const ExperiencesTitle = styled.h2`
   font-weight: 700;
   letter-spacing: 0.05rem;
@@ -674,8 +673,9 @@ export const ExperiencesContent = styled.div`
     grid-row-end: 2;
     grid-column-start: 2;
     grid-column-end: 2;
-    line-height: 2.5rem;
     margin-left: 8rem;
+
+    line-height: clamp(1.5rem, 2vmin, 3rem);
 
     @media (orientation: portrait) {
       font-size: clamp(1rem, 1.2vh, 1.5rem);
