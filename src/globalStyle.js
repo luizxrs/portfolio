@@ -64,7 +64,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
 
-    @media (min-width: 414px) and (max-width: 767px) {
+    @media (min-width: 430px) and (max-width: 767px) {
             font-size: 40%;
     }
     }
