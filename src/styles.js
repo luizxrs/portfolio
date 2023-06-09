@@ -603,6 +603,11 @@ export const ExperiencesWrapper = styled.div`
   position: relative;
   margin-top: 6.4rem;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+
   @media (orientation: portrait) {
     width: 75vw;
     height: 85vh;
@@ -614,7 +619,8 @@ export const PurpleTint = styled.span`
   text-shadow: 0 0 3rem ${colors.first};
 `;
 
-export const ExperiencesHeader = styled.div``;
+export const ExperiencesHeader = styled.div`
+`;
 export const ExperiencesTitle = styled.h2`
   font-weight: 700;
   letter-spacing: 0.05rem;
@@ -772,12 +778,12 @@ export const ExperiencesTech = styled.div`
 
 export const ExperiencesIconsWrapper = styled.div`
   width: 100%;
-  position: absolute;
-  bottom: 0;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 2vmin;
+
+  margin-top: 10vh;
 
   @media (orientation: portrait) {
     gap: 2vmin;

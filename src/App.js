@@ -147,16 +147,27 @@ function App() {
           </MenuHeader>
           <MenuItemsWrapper>
             <MenuItems>
-              <ItemLink onClick={() => setOpenBurger(false)} href="#home">Home</ItemLink>
+              <ItemLink onClick={() => setOpenBurger(false)} href="#home">
+                Home
+              </ItemLink>
             </MenuItems>
-            <MenuItems >
-              <ItemLink onClick={() => setOpenBurger(false)} href="#experiences">Habilidades</ItemLink>
+            <MenuItems>
+              <ItemLink
+                onClick={() => setOpenBurger(false)}
+                href="#experiences"
+              >
+                Habilidades
+              </ItemLink>
             </MenuItems>
-            <MenuItems >
-              <ItemLink onClick={() => setOpenBurger(false)} href="#projects">Meus Projetos</ItemLink>
+            <MenuItems>
+              <ItemLink onClick={() => setOpenBurger(false)} href="#projects">
+                Meus Projetos
+              </ItemLink>
             </MenuItems>
-            <MenuItems >
-              <ItemLink onClick={() => setOpenBurger(false)} href="#about">Sobre mim</ItemLink>
+            <MenuItems>
+              <ItemLink onClick={() => setOpenBurger(false)} href="#about">
+                Sobre mim
+              </ItemLink>
             </MenuItems>
           </MenuItemsWrapper>
         </StyledMenu>
@@ -239,11 +250,45 @@ function App() {
                     </ContactMeButton>
                     <ContactWindow isOpen={contactWindow}>
                       <ContactWindowWrapper>
-              <MdEmail className="icon" onClick={() =>  window.open('https://mailto:lgustavoitp@gmail.com', '_blank')} />
-              <BsDiscord className="icon" onClick={() =>  window.open('https://discordapp.com/users/490654525175365632', '_blank')} />
-              <BsLinkedin className="icon" onClick={() =>  window.open('https://www.linkedin.com/in/luiz-souza-a6b128162/', '_blank')} />
-              <BsGithub className="icon" onClick={() =>  window.open('https://github.com/luizxrs', '_blank')} />
-              <BsWhatsapp className="icon" onClick={() =>  window.open('https://wa.me/5547997711685', '_blank')} />
+                        <MdEmail
+                          className="icon"
+                          onClick={() =>
+                            window.open(
+                              "https://mailto:lgustavoitp@gmail.com",
+                              "_blank"
+                            )
+                          }
+                        />
+                        <BsDiscord
+                          className="icon"
+                          onClick={() =>
+                            window.open(
+                              "https://discordapp.com/users/490654525175365632",
+                              "_blank"
+                            )
+                          }
+                        />
+                        <BsLinkedin
+                          className="icon"
+                          onClick={() =>
+                            window.open(
+                              "https://www.linkedin.com/in/luiz-souza-a6b128162/",
+                              "_blank"
+                            )
+                          }
+                        />
+                        <BsGithub
+                          className="icon"
+                          onClick={() =>
+                            window.open("https://github.com/luizxrs", "_blank")
+                          }
+                        />
+                        <BsWhatsapp
+                          className="icon"
+                          onClick={() =>
+                            window.open("https://wa.me/5547997711685", "_blank")
+                          }
+                        />
                       </ContactWindowWrapper>
                     </ContactWindow>
                   </div>
@@ -411,11 +456,42 @@ function App() {
               <a href="#about">Sobre mim</a>
             </FooterSections>
             <FooterIcons>
-              <MdEmail className="icon" onClick={() =>  window.open('https://mailto:lgustavoitp@gmail.com', '_blank')} />
-              <BsDiscord className="icon" onClick={() =>  window.open('https://discordapp.com/users/490654525175365632', '_blank')} />
-              <BsLinkedin className="icon" onClick={() =>  window.open('https://www.linkedin.com/in/luiz-souza-a6b128162/', '_blank')} />
-              <BsGithub className="icon" onClick={() =>  window.open('https://github.com/luizxrs', '_blank')} />
-              <BsWhatsapp className="icon" onClick={() =>  window.open('https://wa.me/5547997711685', '_blank')} />
+              <MdEmail
+                className="icon"
+                onClick={() =>
+                  window.open("https://mailto:lgustavoitp@gmail.com", "_blank")
+                }
+              />
+              <BsDiscord
+                className="icon"
+                onClick={() =>
+                  window.open(
+                    "https://discordapp.com/users/490654525175365632",
+                    "_blank"
+                  )
+                }
+              />
+              <BsLinkedin
+                className="icon"
+                onClick={() =>
+                  window.open(
+                    "https://www.linkedin.com/in/luiz-souza-a6b128162/",
+                    "_blank"
+                  )
+                }
+              />
+              <BsGithub
+                className="icon"
+                onClick={() =>
+                  window.open("https://github.com/luizxrs", "_blank")
+                }
+              />
+              <BsWhatsapp
+                className="icon"
+                onClick={() =>
+                  window.open("https://wa.me/5547997711685", "_blank")
+                }
+              />
             </FooterIcons>
           </FooterContent>
         </Footer>

@@ -14,26 +14,6 @@ const GlobalStyle = createGlobalStyle`
     :root {
         font-size: 40%;
 
-        
-/* iPhone 13 or devices with similar pixel density */
-@media (min-width: 428px) {
-  font-size: 100%;
-}
-
-/* Most modern smartphones */
-@media (max-width: 414px) {
-  font-size: 90%;
-}
-
-/* Older smartphones in portrait mode */
-@media (max-width: 375px) {
-  font-size: 80%;
-}
-
-/* Smaller smartphones or devices in landscape mode */
-@media (max-width: 320px) {
-  font-size: 70%;
-}
 
     @media only screen and (min-width: 4000px) {
             font-size: 150%;
