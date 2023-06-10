@@ -1,6 +1,7 @@
 import styled, { keyframes } from "styled-components/macro";
+import { css } from "styled-components";
 
-const colors = {
+export const colors = {
   first: "#774cf0",
   second: "#5E2AB2",
   third: "#5626a3",
@@ -24,7 +25,6 @@ const gradientTitleAnimation = keyframes`
 `;
 
 export const Main = styled.div`
-  overflow: hidden;
   section {
     min-height: 100vh;
     max-height: 100vh;
@@ -314,8 +314,8 @@ export const HomeProfilePicture = styled.div`
   height: clamp(30rem, 40vw, 50rem);
 
   @media (orientation: portrait) {
-    width: clamp(30rem, 75vw, 75rem);
-    height: clamp(30rem, 75vw, 75rem);
+    width: clamp(30rem, 75vw, 50rem);
+    height: clamp(30rem, 75vw, 50rem);
   }
   border-radius: 50%;
 
@@ -420,7 +420,7 @@ export const HomeButtons = styled.div`
 
   @media (orientation: portrait) {
     margin: 8rem 0 -8rem 0;
-    width: 70vw;
+    width: 60vw;
   }
 
   :first-child {
@@ -455,7 +455,7 @@ export const ContactMeButton = styled.button`
   outline: 0.3rem solid ${colors.first};
 
   @media (orientation: portrait) {
-    width: 35vw;
+    width: 30vw;
     font-size: clamp(1.2rem, 4vw, 2rem);
   }
 
@@ -902,18 +902,45 @@ export const ProjectsContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 
   @media (orientation: portrait) {
     flex-direction: column;
     justify-content: center;
     width: inherit;
   }
+
+  .slider-wrapper {
+    border-radius: 3rem;
+    min-width: 70vw;
+    max-width: 75vw;
+    min-height: 65vh;
+
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+  }
 `;
+
+export const ProjectsWindowWrapper = styled.div`
+  max-height: 65vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
 export const ProjectsWindow = styled.div`
   border-radius: 3rem;
-  width: 70vw;
-  height: 65vh;
+  width: 58vw;
+  height: 60vh;
   position: relative;
+
+  @media (orientation: portrait) {
+    height: calc(60vh - 18rem);
+    width: 65vw;
+  }
 
   box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.5);
   background: linear-gradient(
@@ -944,22 +971,25 @@ export const ProjectsWindow = styled.div`
   }
 `;
 export const ProjectsArrowRight = styled.div`
-  width: 6rem;
-  height: 6rem;
+  min-width: 6rem;
+  min-height: 6rem;
+  max-height: 6rem;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   position: relative;
+  margin-top: auto;
+  margin-bottom: auto;
 
   @media (orientation: portrait) {
     order: 1;
     margin-left: 10rem;
     margin-bottom: 2rem;
     margin-top: -2rem;
-    width: 8rem;
-    height: 8rem;
+    min-width: 8rem;
+    min-height: 8rem;
   }
 
   box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.5);
@@ -991,8 +1021,8 @@ export const ProjectsArrowRight = styled.div`
   }
 `;
 export const ProjectsArrowLeft = styled.div`
-  width: 6rem;
-  height: 6rem;
+  min-width: 6rem;
+  min-height: 6rem;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -1005,8 +1035,8 @@ export const ProjectsArrowLeft = styled.div`
     margin-right: 10rem;
     margin-bottom: -5rem;
     margin-top: 5rem;
-    width: 8rem;
-    height: 8rem;
+    min-width: 8rem;
+    min-height: 8rem;
   }
 
   box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.5);
@@ -1041,6 +1071,7 @@ export const ProjectsArrowLeft = styled.div`
 export const AboutWrapper = styled.div`
   width: 90vw;
   min-height: 75vh;
+  max-height: 75vh;
   color: white;
   display: flex;
   flex-direction: column;
@@ -1076,9 +1107,9 @@ export const AboutTitle = styled.h2`
 
 export const AboutContent = styled.div`
   width: 90vw;
-  height: 65vh;
+  height: 70vh;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   gap: 3rem;
 
@@ -1092,20 +1123,20 @@ export const AboutContent = styled.div`
 export const AboutText = styled.div`
   font-weight: 600;
   margin-top: -0.2rem;
-  text-align: center;
   max-width: 45%;
   line-height: 3rem;
 
+  p {
+    text-align: justify;
+  }
+
   @media (orientation: portrait) {
     max-width: 75vw;
-
-    p {
-      font-size: 2rem;
-    }
   }
 
   h1 {
     font-weight: 700;
+    text-align: center;
     margin-bottom: 5rem;
     letter-spacing: 0.2rem;
     transition: all 1s ${transitionPattern};
@@ -1114,7 +1145,7 @@ export const AboutText = styled.div`
     font-size: clamp(1.5rem, 4vw, 6rem);
 
     @media (orientation: portrait) {
-      font-size: clamp(1.5rem, 8vw, 10rem);
+      font-size: clamp(1.5rem, 8vw, 8rem);
     }
 
     &:hover {
@@ -1125,8 +1156,8 @@ export const AboutText = styled.div`
 
 export const AboutWindow = styled.div`
   border-radius: 3rem;
-  min-width: 50vmin;
-  height: 50vmin;
+  min-width: 40vmin;
+  height: 40vmin;
   position: relative;
   margin-left: 3rem;
   box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.5);
@@ -1145,7 +1176,7 @@ export const AboutWindow = styled.div`
   }
 
   .profile-wrapper {
-    height: 50vmin;
+    height: 40vmin;
     overflow: hidden;
     position: relative;
   }
@@ -1154,7 +1185,7 @@ export const AboutWindow = styled.div`
     position: absolute;
     width: 30vmin;
     bottom: -3rem;
-    left: 4rem;
+    left: 2rem;
   }
 
   &:hover {

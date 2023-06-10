@@ -55,6 +55,7 @@ import {
   MenuItems,
   ItemLink,
   LogoPurpleMenu,
+  TestCard,
 } from "./styles";
 import GlobalStyle from "./globalStyle";
 import whitelogo from "./assets/imgs/whitelogo.png";
@@ -76,13 +77,25 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
 import { BsWhatsapp, BsGithub, BsLinkedin, BsDiscord } from "react-icons/bs";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, Component } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import SimpleSlider from "../src/components/projects.js";
 
 function App() {
   const [fix, setFix] = useState(false);
   const [activeLink, setActiveLink] = useState("home");
   const [contactWindow, setContactWindow] = useState(false);
   const [openBurger, setOpenBurger] = useState(false);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -400,13 +413,9 @@ function App() {
               </ProjectsTitle>
             </ProjectsHeader>
             <ProjectsContent>
-              <ProjectsArrowLeft>
-                <img src={leftarrow} alt="Seta para esquerda"></img>
-              </ProjectsArrowLeft>
-              <ProjectsWindow></ProjectsWindow>
-              <ProjectsArrowRight>
-                <img src={rightarrow} alt="Seta para direita"></img>
-              </ProjectsArrowRight>
+              <div className="slider-wrapper">
+                <SimpleSlider ></SimpleSlider>
+              </div>
             </ProjectsContent>
           </ProjectsWrapper>
         </section>
