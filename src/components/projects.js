@@ -1,12 +1,21 @@
 import React, { Component } from "react";
 import Carousel, { consts } from "react-elastic-carousel";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import leftarrow from "../assets/svgs/leftarrow.svg";
 import rightarrow from "../assets/svgs/rightarrow.svg";
-import { ProjectsWindow, ProjectsWindowWrapper } from "../styles";
+import {
+  OpenGitHubButton,
+  OpenProjectButton,
+  Paragraph,
+  ProjectsButtons,
+  ProjectsWindow,
+  ProjectsWindowWrapper,
+  PurpleTint,
+} from "../styles";
 import { colors } from "../styles";
+import { apiData } from "./projectsAPI";
 
-const ProjectsArrowRight = styled.button`
+const ProjectsArrow = styled.button`
   all: unset;
   min-width: 6rem;
   min-height: 6rem;
@@ -71,7 +80,7 @@ const StyledCarousel = styled(Carousel)`
       margin-right: 12rem;
     }
   }
-  
+
   .right {
     @media (orientation: portrait) {
       margin-left: 12rem;
@@ -83,9 +92,14 @@ export default class App extends Component {
   myArrow({ type, onClick, isEdge }) {
     const pointer = type === consts.PREV ? leftarrow : rightarrow;
     return (
-      <ProjectsArrowRight pointer={pointer} className={pointer === leftarrow ? 'left' : 'right'} onClick={onClick} disabled={isEdge}>
+      <ProjectsArrow
+        pointer={pointer}
+        className={pointer === leftarrow ? "left" : "right"}
+        onClick={onClick}
+        disabled={isEdge}
+      >
         <img src={pointer} alt={`${pointer} Seta`} />
-      </ProjectsArrowRight>
+      </ProjectsArrow>
     );
   }
 
@@ -102,23 +116,56 @@ export default class App extends Component {
       <StyledCarousel
         itemPadding={[5, 10]}
         renderArrow={this.myArrow}
-        enableAutoPlay
-        autoPlaySpeed={1500}
         easing="ease"
         enableTilt={true}
         tiltEasing="ease"
         disableArrowsOnEnd={true}
         breakPoints={this.breakPoints}
       >
-        <ProjectsWindowWrapper>
-          <ProjectsWindow></ProjectsWindow>
-        </ProjectsWindowWrapper>
-        <ProjectsWindowWrapper>
-          <ProjectsWindow></ProjectsWindow>
-        </ProjectsWindowWrapper>
-        <ProjectsWindowWrapper>
-          <ProjectsWindow></ProjectsWindow>
-        </ProjectsWindowWrapper>
+        {apiData.map((data) => (
+          <ProjectsWindowWrapper>
+            <ProjectsWindow>
+              <div className="window-wrapper">
+                <div className="image-side">
+                  <div className="image-wrapper-projects">
+                    <div className="background" />
+                    <img
+                      src={data.linkImg}
+                      alt="Demo do projeto em dispositivos"
+                    />
+                  </div>
+                </div>
+                <div className="content-side">
+                  <div className="window-content-wrapper">
+                    <div className="title-wrapper">
+                      <Paragraph className="tech-icons">
+                        <PurpleTint>{data.usedTechs}</PurpleTint>
+                      </Paragraph>
+                      <div className="title">{data.title}</div>
+                    </div>
+                    <Paragraph className="text">{data.description}</Paragraph>
+                    <ProjectsButtons>
+                      <OpenGitHubButton
+                        onClick={() => window.open(`${data.demoLink}`, "blank")}
+                      >
+                        Demo
+                      </OpenGitHubButton>
+                      <div>
+                        <OpenProjectButton
+                          onClick={() =>
+                            window.open(`${data.gitHubLink}`, "blank")
+                          }
+                        >
+                          Source Code
+                        </OpenProjectButton>
+                      </div>
+                    </ProjectsButtons>
+                  </div>
+                </div>
+              </div>
+            </ProjectsWindow>
+          </ProjectsWindowWrapper>
+        ))}
       </StyledCarousel>
     );
   }

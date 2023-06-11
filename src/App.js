@@ -14,7 +14,6 @@ import {
   AboutContent,
   AboutHeader,
   AboutText,
-  AboutTitle,
   AboutWindow,
   AboutWrapper,
   CornerLogo,
@@ -34,7 +33,6 @@ import {
   ProjectsContent,
   ProjectsHeader,
   ProjectsTitle,
-  ProjectsWindow,
   ProjectsWrapper,
   PurpleTint,
   ContactMeButton,
@@ -45,8 +43,6 @@ import {
   FooterIcons,
   ContactWindow,
   ContactWindowWrapper,
-  ProjectsArrowLeft,
-  ProjectsArrowRight,
   BurgerButton,
   StyledMenu,
   MenuHeader,
@@ -55,7 +51,8 @@ import {
   MenuItems,
   ItemLink,
   LogoPurpleMenu,
-  TestCard,
+  Title,
+  Paragraph,
 } from "./styles";
 import GlobalStyle from "./globalStyle";
 import whitelogo from "./assets/imgs/whitelogo.png";
@@ -69,16 +66,13 @@ import nodejs from "./assets/svgs/nodejs.svg";
 import react from "./assets/svgs/react.svg";
 import vscode from "./assets/svgs/vscode.svg";
 import style from "./assets/svgs/style.svg";
-import leftarrow from "./assets/svgs/leftarrow.svg";
-import rightarrow from "./assets/svgs/rightarrow.svg";
 import profile from "./assets/imgs/profile.png";
 import purpleFullLogo from "./assets/svgs/purple-full-logo.svg";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
 import { BsWhatsapp, BsGithub, BsLinkedin, BsDiscord } from "react-icons/bs";
-import React, { useEffect, useState, Component } from "react";
-import Slider from "react-slick";
+import React, { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SimpleSlider from "../src/components/projects.js";
@@ -89,13 +83,6 @@ function App() {
   const [contactWindow, setContactWindow] = useState(false);
   const [openBurger, setOpenBurger] = useState(false);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -224,7 +211,7 @@ function App() {
           </div>
         </Header>
 
-        <section id="home">
+        <section style={{background: 'red'}} id="home">
           <HomeWrapper>
             <HomeContentWrapper>
               <HomeLeftSide>
@@ -312,7 +299,7 @@ function App() {
           </HomeWrapper>
         </section>
 
-        <section id="experiences">
+        <section  style={{background: 'blue'}} id="experiences">
           <ExperiencesWrapper>
             <ExperiencesHeader>
               <ExperiencesTitle>
@@ -327,15 +314,9 @@ function App() {
                 <h4>
                   Parte <PurpleTint>Lógica</PurpleTint>
                 </h4>
-                <p>
-                  Pegar uma xícara de café e programar diversas funções para
-                  meus projetos é meu hobbie junto de encarar os bugs e passar
-                  horas fuçando no stack overflow e na documentação. Se você
-                  está em busca de um profissional capaz de encontrar soluções
-                  inteligentes e desenvolver projetos de alta qualidade, estou
-                  aqui para ajudar, com o objetivo de sempre evoluir e manter-me
-                  atualizado.
-                </p>
+                <Paragraph>
+                  Procuro buscar, pesquisar e ler até resolver o problema, se você está procurando um desenvolvedor capaz de encontrar soluções inteligentes e modernas estou aqui para ajudar. 
+                </Paragraph>
               </ExperiencesLogic>
               <ExperiencesDesign className="content-wrapper">
                 <ExperiencesDesignIcon>
@@ -345,14 +326,12 @@ function App() {
                 <h4>
                   <PurpleTint>Ui/Ux</PurpleTint> Design
                 </h4>
-                <p>
-                  Com paixão pelo design de UI e UX, criando interfaces que
-                  encantam os usuários. Trabalho com Styled Components, Tailwind
-                  CSS e CSS padrão, trazendo beleza visual para cada projeto. E
-                  com o Figma, prototipo e compartilho designs de forma ágil.
-                  Posso criar algo especial que certamente vai agradar sem medo
+                <Paragraph>
+                  Com paixão pelo design, crio interfaces que
+                  encantam os usuários visualmente e de forma responsiva. Trabalho com Styled Components, Tailwind
+                  CSS e Figma para o design. Posso criar algo especial que certamente vai agradar sem medo
                   de arriscar novas tecnologias.
-                </p>
+                </Paragraph>
               </ExperiencesDesign>
               <ExperiencesTech className="content-wrapper">
                 <ExperiencesTechIcon>
@@ -362,50 +341,48 @@ function App() {
                 <h4>
                   <PurpleTint>Técnologias</PurpleTint> que uso!
                 </h4>
-                <p>
+                <Paragraph>
                   Sendo do meu foco ReactJS para o front-end e NodeJS para o
                   back-end, consigo me adequar a qualquer outra necessidade e
                   não tenho medo de aprender coisas novas. Para a estilização
-                  uso muito Styled-Components e estou aprendendo Tailwind CSS.
-                  Participei de projetos usando FireBase com autenticação de
-                  usuários. E por seguinte planejo também me aprofundar em React
-                  Native!
-                </p>
+                  uso Styled-Components e Tailwind CSS. Fiz projetos internos usando FireBase com autenticação de
+                  usuários e React Router. E por seguinte planejo também me aprofundar em React Native!
+                </Paragraph>
               </ExperiencesTech>
             </ExperiencesContent>
             <ExperiencesIconsWrapper>
               <ExperiencesIcon>
                 <img src={figma} alt="figma logo"></img>
-                <p>Figma</p>
+                <Paragraph>Figma</Paragraph>
               </ExperiencesIcon>
               <ExperiencesIcon>
                 <img src={vscode} alt="vscode logo"></img>
-                <p>Vscode</p>
+                <Paragraph>Vscode</Paragraph>
               </ExperiencesIcon>
               <ExperiencesIcon>
                 <img src={react} alt="React logo"></img>
-                <p>ReactJS</p>
+                <Paragraph>ReactJS</Paragraph>
               </ExperiencesIcon>
               <ExperiencesIcon>
                 <img src={style} alt="Styled Components + Tailwind logo"></img>
-                <p>Styled Components + Tailwind</p>
+                <Paragraph>Styled Components + Tailwind</Paragraph>
               </ExperiencesIcon>
               <ExperiencesIcon>
                 <img src={javascript} alt="javascript logo"></img>
-                <p>JavaScript</p>
+                <Paragraph>JavaScript</Paragraph>
               </ExperiencesIcon>
               <ExperiencesIcon>
                 <img src={nodejs} alt="nodejs logo"></img>
-                <p>NodeJS</p>
+                <Paragraph>NodeJS</Paragraph>
               </ExperiencesIcon>
               <ExperiencesIcon>
                 <img src={firebase} alt="firebase logo"></img>
-                <p>Firebase</p>
+                <Paragraph>Firebase</Paragraph>
               </ExperiencesIcon>
             </ExperiencesIconsWrapper>
           </ExperiencesWrapper>
         </section>
-        <section id="projects">
+        <section  style={{background: 'yellow'}}  id="projects">
           <ProjectsWrapper>
             <ProjectsHeader>
               <ProjectsTitle>
@@ -420,12 +397,12 @@ function App() {
           </ProjectsWrapper>
         </section>
 
-        <section id="about">
+        <section  style={{background: 'green'}}  id="about">
           <AboutWrapper>
             <AboutHeader>
-              <AboutTitle>
+              <Title>
                 Sobre <PurpleTint>mim</PurpleTint>!
-              </AboutTitle>
+              </Title>
             </AboutHeader>
             <AboutContent>
               <AboutWindow>
@@ -437,7 +414,7 @@ function App() {
                 <h1
                   dangerouslySetInnerHTML={{ __html: "&lt;LuizGustavo/&gt;" }}
                 ></h1>
-                <p>
+                <Paragraph>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
                   eu odio condimentum, commodo lacus quis, semper turpis. Mauris
                   vel dolor non massa tempor <PurpleTint>porta et </PurpleTint>
@@ -448,12 +425,12 @@ function App() {
                   <PurpleTint>commodo risus.</PurpleTint> Vestibulum sodales
                   lectus vitae ligula eleifend, ut porta massa pulvinar. Quisque
                   pulvinar lacus in arcu tincidunt ultrices. amet. Proin
-                </p>
+                </Paragraph>
               </AboutText>
             </AboutContent>
           </AboutWrapper>
         </section>
-        <Footer>
+        <Footer >
           <FooterContent>
             <FooterTitle>
               <PurpleTint>Gostou?</PurpleTint> dê uma olhada nas minhas redes!

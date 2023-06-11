@@ -667,19 +667,22 @@ export const ExperiencesContent = styled.div`
   }
 
   p {
-    font-weight: 600;
     margin-top: -0.2rem;
     grid-row-start: 2;
     grid-row-end: 2;
     grid-column-start: 2;
     grid-column-end: 2;
     margin-left: 8rem;
+  }
+`;
 
-    line-height: clamp(1.5rem, 2vmin, 3rem);
+export const Paragraph = styled.p`
+  font-weight: 600;
 
-    @media (orientation: portrait) {
-      font-size: clamp(1rem, 1.2vh, 1.5rem);
-    }
+  line-height: clamp(1.5rem, 2vmin, 3rem);
+
+  @media (orientation: portrait) {
+    font-size: clamp(1rem, 1.2vh, 1.5rem);
   }
 `;
 
@@ -804,8 +807,8 @@ export const ExperiencesIcon = styled.div`
   flex-direction: column;
 
   @media (orientation: portrait) {
-    height: clamp(10rem, 17vw, 40rem);
-    width: clamp(10rem, 17vw, 40rem);
+    height: clamp(10rem, 15vw, 40rem);
+    width: clamp(10rem, 15vw, 40rem);
   }
 
   p {
@@ -933,9 +936,129 @@ export const ProjectsWindowWrapper = styled.div`
 
 export const ProjectsWindow = styled.div`
   border-radius: 3rem;
+  overflow: hidden;
   width: 58vw;
   height: 60vh;
   position: relative;
+  text-align: end;
+
+  &:hover {
+    img {
+      transform: scale(1.1);
+    }
+
+    .background {
+      padding-left: 5rem;
+
+      @media (orientation: portrait) {
+        padding: 0 0 5rem 0;
+      }
+    }
+  }
+
+  .window-wrapper {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    height: 100%;
+
+    @media (orientation: portrait) {
+      grid-template-columns: 100%;
+      grid-template-rows: 40% 60%;
+    }
+  }
+
+  .image-side {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .image-wrapper-projects {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .background {
+        width: 70%;
+        height: 100%;
+        margin-right: auto;
+        display: inline;
+        background-color: rgba(0, 0, 0, 0.4);
+        border-right: 1px solid ${colors.first};
+        box-shadow: 0 0 10rem rgba(0, 0, 0, 1);
+
+        @media (orientation: portrait) {
+          width: 100%;
+          height: 50%;
+          margin-bottom: auto;
+          border-bottom: 1px solid ${colors.first};
+        }
+      }
+
+      img {
+        position: absolute;
+        max-width: 20vw;
+      }
+    }
+  }
+
+  .content-side {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+  }
+
+  .window-content-wrapper {
+    position: absolute;
+    bottom: 5%;
+    right: 15%;
+    display: grid;
+    grid-template-rows: 40% 1fr 1fr 1fr 1fr;
+
+    @media (orientation: portrait) {
+      bottom: 5%;
+      left: 5%;
+      right: 5%;
+      grid-template-rows: 20% 1fr 1fr 1fr 1fr;
+    }
+  }
+
+  .title-wrapper {
+    grid-row-start: 3;
+    grid-row-end: 3;
+    margin-bottom: 2rem;
+
+    @media (orientation: portrait) {
+      grid-row-start: 2;
+      grid-row-end: 2;
+    }
+  }
+
+  .tech-icons {
+    margin: 0;
+  }
+
+  .title {
+    max-width: 90%;
+    margin: 0 0 0 10%;
+    font-size: 3rem;
+    font-weight: 800;
+  }
+
+  .text {
+    grid-row-start: 4;
+    grid-row-end: 4;
+    font-weight: 400;
+
+    @media (orientation: portrait) {
+      font-size: 1.8rem;
+      max-width: 60%;
+      margin-left: auto;
+      grid-row-start: 3;
+      grid-row-end: 3;
+    }
+  }
 
   @media (orientation: portrait) {
     height: calc(60vh - 18rem);
@@ -1085,7 +1208,7 @@ export const AboutWrapper = styled.div`
 
 export const AboutHeader = styled.div``;
 
-export const AboutTitle = styled.h2`
+export const Title = styled.h2`
   font-weight: 700;
   letter-spacing: 0.05rem;
   position: relative;
@@ -1305,5 +1428,101 @@ export const FooterIcons = styled.div`
       color: white;
       filter: drop-shadow(0 0 2rem rgba(255, 255, 255, 0.5));
     }
+  }
+`;
+
+export const ProjectsButtons = styled.div`
+  height: 10rem;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: auto;
+
+  grid-row-start: 5;
+  grid-row-end: 5;
+
+  @media (orientation: portrait) {
+
+
+    grid-row-start: 4;
+    grid-row-end: 4;
+  }
+
+  :first-child {
+    position: relative;
+  }
+`;
+export const OpenProjectButton = styled.button`
+  all: unset;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 600;
+  font-size: clamp(1.2rem, 1.5vw, 1.6rem);
+  letter-spacing: 0.05rem;
+  width: clamp(12rem, 10vw, 30rem);
+  z-index: 100;
+  background: linear-gradient(
+    180deg,
+    ${colors.fourth} 0%,
+    ${colors.third} 50%,
+    ${colors.first} 100%
+  );
+  background-size: 100% 200%;
+  background-position-y: 0%;
+  border-radius: 2rem;
+  box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1);
+  position: relative;
+  outline: 0.3rem solid ${colors.first};
+
+  @media (orientation: portrait) {
+    width: 30vw;
+    font-size: clamp(1.2rem, 4vw, 2rem);
+  }
+
+  &:hover {
+    letter-spacing: 0.1rem;
+    box-shadow: 0.4rem 0.8rem 2rem rgba(0, 0, 0, 0.3);
+    background-position-y: 100%;
+  }
+`;
+
+export const OpenGitHubButton = styled.button`
+  all: unset;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  font-size: clamp(1.2rem, 1.5vw, 1.6rem);
+  letter-spacing: 0.05rem;
+  margin-left: 2rem;
+  width: clamp(12rem, 10vw, 30rem);
+  background: #fff;
+  box-shadow: 0px 0px 2.5rem 0.2rem rgba(100, 58, 218, 0.4);
+  border-radius: 2rem;
+  background-size: 100%;
+  cursor: pointer;
+  transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1);
+
+  position: relative;
+
+  @media (orientation: portrait) {
+    width: 35vw;
+    font-size: clamp(1.2rem, 4vw, 2rem);
+  }
+
+  &:hover {
+    background-color: white;
+    letter-spacing: 0.1rem;
+    color: black;
+    box-shadow: 0px 0px 4rem 0.6rem rgba(100, 58, 218, 0.4);
   }
 `;
