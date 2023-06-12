@@ -468,11 +468,12 @@ export const ContactMeButton = styled.button`
   background-size: 100% 200%;
   background-position-y: 0%;
   border-radius: 3rem;
-  box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.5);
+  box-shadow: .5rem .5rem 3rem rgba(0, 0, 0, 0.3);
   cursor: pointer;
   transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1);
   position: relative;
-  outline: 0.2rem solid ${colors.first};
+  border: 0.2rem solid ${colors.first};
+  -webkit-border: 0.2rem solid ${colors.first};
 
   @media (orientation: portrait) {
     width: 30vw;
@@ -484,6 +485,8 @@ export const ContactMeButton = styled.button`
     box-shadow: 0.4rem 0.8rem 2rem rgba(0, 0, 0, 0.3);
     background-position-y: 100%;
   }
+
+  
 `;
 
 export const ContactWindowWrapper = styled.div`
@@ -523,7 +526,7 @@ export const ContactWindowWrapper = styled.div`
 `;
 
 export const ContactWindow = styled.div`
-  outline: 0.2rem solid ${colors.first};
+  border: .2rem solid ${colors.first};
   height: ${(props) => (props.isOpen ? "12rem" : "0")};
   overflow: hidden;
   display: flex;
@@ -531,7 +534,7 @@ export const ContactWindow = styled.div`
   align-items: center;
   background: white;
   border-radius: 0 0 3rem 3rem;
-  box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.5);
+  box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.3);
   transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1);
   z-index: 1;
 
@@ -1540,7 +1543,6 @@ export const OpenGitHubButton = styled.button`
   font-size: 1.6rem;
   letter-spacing: 0.05rem;
   width: clamp(12rem, 10vw, 30rem);
-  z-index: 100;
   background: linear-gradient(
     180deg,
     ${colors.fourth} 0%,
@@ -1555,7 +1557,8 @@ export const OpenGitHubButton = styled.button`
   cursor: pointer;
   transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1);
   position: relative;
-  outline: 0.3rem solid ${colors.first};
+  border: 0.3rem solid ${colors.first};
+  -webkit-border: 0.3rem solid ${colors.first};
 
   @media (orientation: portrait) {
     width: 25vw;
@@ -1567,4 +1570,6 @@ export const OpenGitHubButton = styled.button`
     box-shadow: 0.4rem 0.8rem 2rem rgba(0, 0, 0, 0.3);
     background-position: center bottom;
   }
+
+  
 `;
