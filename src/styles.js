@@ -35,7 +35,7 @@ export const Main = styled.div`
   }
 `;
 
-export const OverlayColor = styled.div` 
+export const OverlayColor = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -43,8 +43,9 @@ export const OverlayColor = styled.div`
   height: 100%;
   z-index: 9999; /* Ensure the overlay is on top of other elements */
   pointer-events: none; /* Prevent click events on the overlay */
-  background-color: ${(props) => (props.isOpen ? "rgba(0, 0, 0, .7)" : "unset")};
-`
+  background-color: ${(props) =>
+    props.isOpen ? "rgba(0, 0, 0, .7)" : "unset"};
+`;
 
 export const BurgerButton = styled.div`
   visibility: hidden;
@@ -452,6 +453,12 @@ export const ContactMeButton = styled.button`
   letter-spacing: 0.05rem;
   width: clamp(12rem, 10vw, 30rem);
   z-index: 100;
+  background: -webkit-linear-gradient(
+    180deg,
+    ${colors.fourth} 0%,
+    ${colors.third} 50%,
+    ${colors.first} 100%
+  );
   background: linear-gradient(
     180deg,
     ${colors.fourth} 0%,
@@ -465,7 +472,7 @@ export const ContactMeButton = styled.button`
   cursor: pointer;
   transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1);
   position: relative;
-  outline: 0.4rem solid ${colors.first};
+  outline: 0.2rem solid ${colors.first};
 
   @media (orientation: portrait) {
     width: 30vw;
@@ -516,7 +523,7 @@ export const ContactWindowWrapper = styled.div`
 `;
 
 export const ContactWindow = styled.div`
-  outline: 0.3rem solid ${colors.first};
+  outline: 0.2rem solid ${colors.first};
   height: ${(props) => (props.isOpen ? "12rem" : "0")};
   overflow: hidden;
   display: flex;
@@ -573,7 +580,7 @@ export const DownloadCv = styled.button`
     bottom: 0;
     left: 0;
     z-index: -1;
-    margin: -0.4vw;
+    margin: -0.2vmin;
     border-radius: inherit; /* !importanté */
     background: linear-gradient(130.68deg, #6339d9 0%, #331782 100.52%);
   }
@@ -1473,7 +1480,6 @@ export const ProjectsButtons = styled.div`
     grid-row-end: 4;
     width: 55vw;
 
-
     margin-left: auto;
     margin-right: auto;
   }
@@ -1488,45 +1494,6 @@ export const OpenProjectButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  font-weight: 600;
-  font-size: clamp(1.2rem, 1.5vw, 1.6rem);
-  letter-spacing: 0.05rem;
-  width: clamp(12rem, 10vw, 30rem);
-  z-index: 100;
-  background: linear-gradient(
-    180deg,
-    ${colors.fourth} 0%,
-    ${colors.third} 50%,
-    ${colors.first} 100%
-  );
-  background-size: 100% 200%;
-  background-position-y: 0%;
-  border-radius: 2rem;
-  box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-  transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1);
-  position: relative;
-  outline: 0.3rem solid ${colors.first};
-
-  @media (orientation: portrait) {
-    width: 25vw;
-    font-size: clamp(1.2rem, 3vw, 2rem);
-  }
-
-  &:hover {
-    letter-spacing: 0.1rem;
-    box-shadow: 0.4rem 0.8rem 2rem rgba(0, 0, 0, 0.3);
-    background-position-y: 100%;
-  }
-`;
-
-export const OpenGitHubButton = styled.button`
-  all: unset;
-  height: 5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: black;
   font-weight: 600;
   letter-spacing: 0.05rem;
@@ -1535,7 +1502,7 @@ export const OpenGitHubButton = styled.button`
   margin-left: 2rem;
   width: clamp(12rem, 10vw, 30rem);
   background: #fff;
-  box-shadow: 0px 0px 3rem 0rem rgba(255, 255, 255, .4);
+  box-shadow: 0px 0px 3rem 0rem rgba(255, 255, 255, 0.4);
   border-radius: 2rem;
   background-size: 100%;
   cursor: pointer;
@@ -1553,6 +1520,51 @@ export const OpenGitHubButton = styled.button`
     background-color: white;
     letter-spacing: 0.1rem;
     color: black;
-    box-shadow: 0px 0px 6rem 1rem rgba(255, 255, 255, .4);
+    box-shadow: 0px 0px 6rem 1rem rgba(255, 255, 255, 0.4);
+  }
+
+`;
+
+export const OpenGitHubButton = styled.button`
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  font-family: 'Poppins', sans-serif;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 600;
+  font-size: 1.6rem;
+  letter-spacing: 0.05rem;
+  width: clamp(12rem, 10vw, 30rem);
+  z-index: 100;
+  background: linear-gradient(
+    180deg,
+    ${colors.fourth} 0%,
+    ${colors.third} 50%,
+    ${colors.first} 100%
+  );
+  background-position: center top;
+  background-size: 100% auto;
+  -webkit-border-radius: 2rem; /* Safari */
+  border-radius: 2rem; /* Standard */
+  box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1);
+  position: relative;
+  outline: 0.3rem solid ${colors.first};
+
+  @media (orientation: portrait) {
+    width: 25vw;
+    font-size: 2rem;
+  }
+
+  &:hover {
+    letter-spacing: 0.1rem;
+    box-shadow: 0.4rem 0.8rem 2rem rgba(0, 0, 0, 0.3);
+    background-position: center bottom;
   }
 `;
