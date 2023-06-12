@@ -53,6 +53,7 @@ import {
   LogoPurpleMenu,
   Title,
   Paragraph,
+  OverlayColor,
 } from "./styles";
 import GlobalStyle from "./globalStyle";
 import whitelogo from "./assets/imgs/whitelogo.png";
@@ -171,6 +172,7 @@ function App() {
             </MenuItems>
           </MenuItemsWrapper>
         </StyledMenu>
+        <OverlayColor isOpen={openBurger}></OverlayColor>
         <Header fix={fix}>
           <div className="header-wrapper">
             <CornerLogo fix={fix}>

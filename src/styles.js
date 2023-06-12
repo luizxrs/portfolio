@@ -35,6 +35,17 @@ export const Main = styled.div`
   }
 `;
 
+export const OverlayColor = styled.div` 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999; /* Ensure the overlay is on top of other elements */
+  pointer-events: none; /* Prevent click events on the overlay */
+  background-color: ${(props) => (props.isOpen ? "rgba(0, 0, 0, .7)" : "unset")};
+`
+
 export const BurgerButton = styled.div`
   visibility: hidden;
 
@@ -68,6 +79,7 @@ export const StyledMenu = styled.div`
     props.isOpen ? `1px solid ${colors.first}` : "none"};
   box-shadow: 0 0 10rem rgba(0, 0, 0, 1);
   backdrop-filter: blur(1rem);
+  -webkit-backdrop-filter: blur(1rem);
   will-change: transform;
   font-size: 1.5rem;
   width: 100%;
@@ -220,6 +232,7 @@ export const Header = styled.div`
   height: ${(props) => (props.fix ? "6.4rem" : "10rem")};
   z-index: 9999;
   backdrop-filter: ${(props) => (props.fix ? "blur(2rem)" : "none")};
+  -webkit-backdrop-filter: ${(props) => (props.fix ? "blur(2rem)" : "none")};
   will-change: transform;
   border-bottom: ${(props) =>
     props.fix ? `1px solid ${colors.first}` : "none"};
@@ -452,7 +465,7 @@ export const ContactMeButton = styled.button`
   cursor: pointer;
   transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1);
   position: relative;
-  outline: 0.3rem solid ${colors.first};
+  outline: 0.4rem solid ${colors.first};
 
   @media (orientation: portrait) {
     width: 30vw;
@@ -560,7 +573,7 @@ export const DownloadCv = styled.button`
     bottom: 0;
     left: 0;
     z-index: -1;
-    margin: -0.1vw;
+    margin: -0.4vw;
     border-radius: inherit; /* !importanté */
     background: linear-gradient(130.68deg, #6339d9 0%, #331782 100.52%);
   }
@@ -925,7 +938,6 @@ export const ProjectsContent = styled.div`
 `;
 
 export const ProjectsWindowWrapper = styled.div`
-  max-height: 65vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -942,7 +954,7 @@ export const ProjectsWindow = styled.div`
 
   &:hover {
     img {
-      transform: scale(1.1);
+      transform: scale(1.2);
     }
 
     .background {
@@ -988,9 +1000,10 @@ export const ProjectsWindow = styled.div`
 
         @media (orientation: portrait) {
           width: 100%;
-          height: 50%;
+          height: 40%;
           margin-bottom: auto;
           border-bottom: 1px solid ${colors.first};
+          border-right: 0;
         }
       }
 
@@ -1026,8 +1039,6 @@ export const ProjectsWindow = styled.div`
       left: 0;
       top: 0;
 
-      background-color: red;
-
       display: flex;
       justify-content: center;
       flex-direction: column;
@@ -1055,11 +1066,11 @@ export const ProjectsWindow = styled.div`
   .title {
     max-width: 90%;
     margin: 0 0 0 10%;
-    font-size: 3rem;
+    font-size: clamp(2rem, 3vw, 2.5rem);
     font-weight: 800;
 
     @media (orientation: portrait) {
-      max-width: 100%;
+      max-width: 98%;
       margin: 0;
     }
   }
@@ -1070,13 +1081,13 @@ export const ProjectsWindow = styled.div`
     font-weight: 400;
 
     @media (orientation: portrait) {
-      font-size: 1.8rem;
+      font-size: clamp(1.6rem, 2vw, 1.8rem);
       max-width: 80%;
     }
   }
 
   @media (orientation: portrait) {
-    height: calc(60vh - 18rem);
+    height: calc(65vh - 18rem);
     width: 65vw;
   }
 
@@ -1462,7 +1473,6 @@ export const ProjectsButtons = styled.div`
     grid-row-end: 4;
     width: 55vw;
 
-    background-color: blue;
 
     margin-left: auto;
     margin-right: auto;
