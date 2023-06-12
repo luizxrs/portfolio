@@ -145,19 +145,19 @@ export default class App extends Component {
                     </div>
                     <Paragraph className="text">{data.description}</Paragraph>
                     <ProjectsButtons>
-                      <OpenGitHubButton
+                      <OpenProjectButton
                         onClick={() => window.open(`${data.demoLink}`, "blank")}
                       >
                         Demo
-                      </OpenGitHubButton>
+                      </OpenProjectButton>
                       <div>
-                        <OpenProjectButton
+                        <OpenGitHubButton
                           onClick={() =>
                             window.open(`${data.gitHubLink}`, "blank")
                           }
                         >
                           Source Code
-                        </OpenProjectButton>
+                        </OpenGitHubButton>
                       </div>
                     </ProjectsButtons>
                   </div>

@@ -599,10 +599,9 @@ export const HomeTitle = styled.h1`
 
 export const ExperiencesWrapper = styled.div`
   width: 90vw;
-  height: 70vh;
+  height: 75vh;
   color: white;
   position: relative;
-  margin-top: 6.4rem;
 
   display: flex;
   flex-direction: column;
@@ -653,8 +652,8 @@ export const ExperiencesContent = styled.div`
   text-align: justify;
 
   @media (orientation: portrait) {
-    grid-template-columns: 100%;
-    grid-template-rows: 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: column;
   }
 
   h4 {
@@ -786,8 +785,6 @@ export const ExperiencesIconsWrapper = styled.div`
   flex-wrap: wrap;
   gap: 2vmin;
 
-  margin-top: 10vh;
-
   @media (orientation: portrait) {
     gap: 2vmin;
   }
@@ -816,7 +813,8 @@ export const ExperiencesIcon = styled.div`
     max-width: 9vw;
 
     @media (orientation: portrait) {
-      font-size: 1.1rem;
+      font-size: 1rem;
+      min-width: 15vw;
     }
   }
 
@@ -1017,10 +1015,25 @@ export const ProjectsWindow = styled.div`
     grid-template-rows: 40% 1fr 1fr 1fr 1fr;
 
     @media (orientation: portrait) {
-      bottom: 5%;
+      /* bottom: 5%;
       left: 5%;
       right: 5%;
-      grid-template-rows: 20% 1fr 1fr 1fr 1fr;
+      grid-template-rows: 20% 1fr 1fr 1fr 1fr; */
+
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      top: 0;
+
+      background-color: red;
+
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+
+      text-align: center;
     }
   }
 
@@ -1044,6 +1057,11 @@ export const ProjectsWindow = styled.div`
     margin: 0 0 0 10%;
     font-size: 3rem;
     font-weight: 800;
+
+    @media (orientation: portrait) {
+      max-width: 100%;
+      margin: 0;
+    }
   }
 
   .text {
@@ -1053,10 +1071,7 @@ export const ProjectsWindow = styled.div`
 
     @media (orientation: portrait) {
       font-size: 1.8rem;
-      max-width: 60%;
-      margin-left: auto;
-      grid-row-start: 3;
-      grid-row-end: 3;
+      max-width: 80%;
     }
   }
 
@@ -1443,10 +1458,14 @@ export const ProjectsButtons = styled.div`
   grid-row-end: 5;
 
   @media (orientation: portrait) {
-
-
     grid-row-start: 4;
     grid-row-end: 4;
+    width: 55vw;
+
+    background-color: blue;
+
+    margin-left: auto;
+    margin-right: auto;
   }
 
   :first-child {
@@ -1481,8 +1500,8 @@ export const OpenProjectButton = styled.button`
   outline: 0.3rem solid ${colors.first};
 
   @media (orientation: portrait) {
-    width: 30vw;
-    font-size: clamp(1.2rem, 4vw, 2rem);
+    width: 25vw;
+    font-size: clamp(1.2rem, 3vw, 2rem);
   }
 
   &:hover {
@@ -1506,7 +1525,7 @@ export const OpenGitHubButton = styled.button`
   margin-left: 2rem;
   width: clamp(12rem, 10vw, 30rem);
   background: #fff;
-  box-shadow: 0px 0px 2.5rem 0.2rem rgba(100, 58, 218, 0.4);
+  box-shadow: 0px 0px 3rem 0rem rgba(255, 255, 255, .4);
   border-radius: 2rem;
   background-size: 100%;
   cursor: pointer;
@@ -1515,14 +1534,15 @@ export const OpenGitHubButton = styled.button`
   position: relative;
 
   @media (orientation: portrait) {
-    width: 35vw;
-    font-size: clamp(1.2rem, 4vw, 2rem);
+    width: 25vw;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    margin-left: 0;
   }
 
   &:hover {
     background-color: white;
     letter-spacing: 0.1rem;
     color: black;
-    box-shadow: 0px 0px 4rem 0.6rem rgba(100, 58, 218, 0.4);
+    box-shadow: 0px 0px 6rem 1rem rgba(255, 255, 255, .4);
   }
 `;

@@ -211,7 +211,7 @@ function App() {
           </div>
         </Header>
 
-        <section style={{background: 'red'}} id="home">
+        <section id="home">
           <HomeWrapper>
             <HomeContentWrapper>
               <HomeLeftSide>
@@ -299,7 +299,7 @@ function App() {
           </HomeWrapper>
         </section>
 
-        <section  style={{background: 'blue'}} id="experiences">
+        <section id="experiences">
           <ExperiencesWrapper>
             <ExperiencesHeader>
               <ExperiencesTitle>
@@ -382,7 +382,7 @@ function App() {
             </ExperiencesIconsWrapper>
           </ExperiencesWrapper>
         </section>
-        <section  style={{background: 'yellow'}}  id="projects">
+        <section  id="projects">
           <ProjectsWrapper>
             <ProjectsHeader>
               <ProjectsTitle>
@@ -397,7 +397,7 @@ function App() {
           </ProjectsWrapper>
         </section>
 
-        <section  style={{background: 'green'}}  id="about">
+        <section id="about">
           <AboutWrapper>
             <AboutHeader>
               <Title>
