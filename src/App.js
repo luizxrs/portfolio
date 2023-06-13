@@ -221,7 +221,7 @@ function App() {
                       <img
                         alt="Myself"
                         className="my-photo"
-                        src="https://ae04.alicdn.com/kf/Se3628dab2f164d1bb209885355539efeW.jpg"
+                        src="https://sun1-15.userapi.com/s/v1/ig2/XqMRlZ4_rjIXHbFagUGklAG7owWjqH4jDjAJvtyW7aAOn3JzcSuDnPIsidWFxtrE5_RDLjyrl-4_zLsk3qh__J9M.jpg?size=400x400&quality=95&crop=144,0,629,629&ava=1"
                       />
                     </div>
                     <div className="shadow-overlay" />
