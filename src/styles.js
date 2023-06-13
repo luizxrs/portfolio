@@ -1551,8 +1551,8 @@ export const OpenGitHubButton = styled.button`
   );
   background-position: center top;
   background-size: 100% auto;
-  -webkit-border-radius: 2rem; /* Safari */
-  border-radius: 2rem; /* Standard */
+  -webkit-border-radius: 2vwn; /* Safari */
+  border-radius: 2vw; /* Standard */
   box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.5);
   cursor: pointer;
   transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1);
