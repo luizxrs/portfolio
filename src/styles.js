@@ -1,6 +1,7 @@
 import styled, { keyframes } from "styled-components/macro";
+import { css } from "styled-components";
 
-const colors = {
+export const colors = {
   first: "#774cf0",
   second: "#5E2AB2",
   third: "#5626a3",
@@ -24,7 +25,6 @@ const gradientTitleAnimation = keyframes`
 `;
 
 export const Main = styled.div`
-  overflow: hidden;
   section {
     min-height: 100vh;
     max-height: 100vh;
@@ -33,6 +33,18 @@ export const Main = styled.div`
     justify-content: center;
     align-items: center;
   }
+`;
+
+export const OverlayColor = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999; /* Ensure the overlay is on top of other elements */
+  pointer-events: none; /* Prevent click events on the overlay */
+  background-color: ${(props) =>
+    props.isOpen ? "rgba(0, 0, 0, .7)" : "unset"};
 `;
 
 export const BurgerButton = styled.div`
@@ -64,9 +76,11 @@ export const BurgerButton = styled.div`
 
 export const StyledMenu = styled.div`
   background: rgba(0, 0, 0, 0.8);
-  border-right: ${(props) => (props.isOpen ? `1px solid ${colors.first}` : "none")};
+  border-right: ${(props) =>
+    props.isOpen ? `1px solid ${colors.first}` : "none"};
   box-shadow: 0 0 10rem rgba(0, 0, 0, 1);
   backdrop-filter: blur(1rem);
+  -webkit-backdrop-filter: blur(1rem);
   will-change: transform;
   font-size: 1.5rem;
   width: 100%;
@@ -219,6 +233,7 @@ export const Header = styled.div`
   height: ${(props) => (props.fix ? "6.4rem" : "10rem")};
   z-index: 9999;
   backdrop-filter: ${(props) => (props.fix ? "blur(2rem)" : "none")};
+  -webkit-backdrop-filter: ${(props) => (props.fix ? "blur(2rem)" : "none")};
   will-change: transform;
   border-bottom: ${(props) =>
     props.fix ? `1px solid ${colors.first}` : "none"};
@@ -246,7 +261,7 @@ export const NavBar = styled.nav`
   display: flex;
   align-items: center;
 
-  @media (max-width: 800px) or (orientation: portrait) {
+  @media (orientation: portrait) {
     visibility: hidden;
   }
 
@@ -278,7 +293,7 @@ export const HomeWrapper = styled.div`
   text-align: justify;
   width: 100%;
   min-height: 100vh;
-    max-height: 100vh;
+  max-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -313,8 +328,8 @@ export const HomeProfilePicture = styled.div`
   height: clamp(30rem, 40vw, 50rem);
 
   @media (orientation: portrait) {
-    width: clamp(30rem, 75vw, 75rem);
-    height: clamp(30rem, 75vw, 75rem);
+    width: clamp(30rem, 75vw, 50rem);
+    height: clamp(30rem, 75vw, 50rem);
   }
   border-radius: 50%;
 
@@ -419,7 +434,7 @@ export const HomeButtons = styled.div`
 
   @media (orientation: portrait) {
     margin: 8rem 0 -8rem 0;
-    width: 70vw;
+    width: 60vw;
   }
 
   :first-child {
@@ -438,6 +453,12 @@ export const ContactMeButton = styled.button`
   letter-spacing: 0.05rem;
   width: clamp(12rem, 10vw, 30rem);
   z-index: 100;
+  background: -webkit-linear-gradient(
+    180deg,
+    ${colors.fourth} 0%,
+    ${colors.third} 50%,
+    ${colors.first} 100%
+  );
   background: linear-gradient(
     180deg,
     ${colors.fourth} 0%,
@@ -447,14 +468,15 @@ export const ContactMeButton = styled.button`
   background-size: 100% 200%;
   background-position-y: 0%;
   border-radius: 3rem;
-  box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.5);
+  box-shadow: .5rem .5rem 3rem rgba(0, 0, 0, 0.3);
   cursor: pointer;
   transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1);
   position: relative;
-  outline: 0.3rem solid ${colors.first};
+  border: 0.2rem solid ${colors.first};
+  -webkit-border: 0.2rem solid ${colors.first};
 
   @media (orientation: portrait) {
-    width: 35vw;
+    width: 30vw;
     font-size: clamp(1.2rem, 4vw, 2rem);
   }
 
@@ -463,6 +485,8 @@ export const ContactMeButton = styled.button`
     box-shadow: 0.4rem 0.8rem 2rem rgba(0, 0, 0, 0.3);
     background-position-y: 100%;
   }
+
+  
 `;
 
 export const ContactWindowWrapper = styled.div`
@@ -502,7 +526,7 @@ export const ContactWindowWrapper = styled.div`
 `;
 
 export const ContactWindow = styled.div`
-  outline: 0.3rem solid ${colors.first};
+  border: .2rem solid ${colors.first};
   height: ${(props) => (props.isOpen ? "12rem" : "0")};
   overflow: hidden;
   display: flex;
@@ -510,7 +534,7 @@ export const ContactWindow = styled.div`
   align-items: center;
   background: white;
   border-radius: 0 0 3rem 3rem;
-  box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.5);
+  box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.3);
   transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1);
   z-index: 1;
 
@@ -559,7 +583,7 @@ export const DownloadCv = styled.button`
     bottom: 0;
     left: 0;
     z-index: -1;
-    margin: -0.1vw;
+    margin: -0.2vmin;
     border-radius: inherit; /* !importanté */
     background: linear-gradient(130.68deg, #6339d9 0%, #331782 100.52%);
   }
@@ -598,15 +622,13 @@ export const HomeTitle = styled.h1`
 
 export const ExperiencesWrapper = styled.div`
   width: 90vw;
-  height: 70vh;
+  height: 75vh;
   color: white;
   position: relative;
-  margin-top: 6.4rem;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
 
   @media (orientation: portrait) {
     width: 75vw;
@@ -619,8 +641,7 @@ export const PurpleTint = styled.span`
   text-shadow: 0 0 3rem ${colors.first};
 `;
 
-export const ExperiencesHeader = styled.div`
-`;
+export const ExperiencesHeader = styled.div``;
 export const ExperiencesTitle = styled.h2`
   font-weight: 700;
   letter-spacing: 0.05rem;
@@ -654,8 +675,8 @@ export const ExperiencesContent = styled.div`
   text-align: justify;
 
   @media (orientation: portrait) {
-    grid-template-columns: 100%;
-    grid-template-rows: 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: column;
   }
 
   h4 {
@@ -668,18 +689,22 @@ export const ExperiencesContent = styled.div`
   }
 
   p {
-    font-weight: 600;
     margin-top: -0.2rem;
     grid-row-start: 2;
     grid-row-end: 2;
     grid-column-start: 2;
     grid-column-end: 2;
-    line-height: 2.5rem;
     margin-left: 8rem;
+  }
+`;
 
-    @media (orientation: portrait) {
-      font-size: clamp(1rem, 1.2vh, 1.5rem);
-    }
+export const Paragraph = styled.p`
+  font-weight: 600;
+
+  line-height: clamp(1.5rem, 2vmin, 3rem);
+
+  @media (orientation: portrait) {
+    font-size: clamp(1rem, 1.2vh, 1.5rem);
   }
 `;
 
@@ -783,8 +808,6 @@ export const ExperiencesIconsWrapper = styled.div`
   flex-wrap: wrap;
   gap: 2vmin;
 
-  margin-top: 10vh;
-
   @media (orientation: portrait) {
     gap: 2vmin;
   }
@@ -804,8 +827,8 @@ export const ExperiencesIcon = styled.div`
   flex-direction: column;
 
   @media (orientation: portrait) {
-    height: clamp(10rem, 17vw, 40rem);
-    width: clamp(10rem, 17vw, 40rem);
+    height: clamp(10rem, 15vw, 40rem);
+    width: clamp(10rem, 15vw, 40rem);
   }
 
   p {
@@ -813,7 +836,8 @@ export const ExperiencesIcon = styled.div`
     max-width: 9vw;
 
     @media (orientation: portrait) {
-      font-size: 1.1rem;
+      font-size: 1rem;
+      min-width: 15vw;
     }
   }
 
@@ -902,18 +926,180 @@ export const ProjectsContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 
   @media (orientation: portrait) {
     flex-direction: column;
     justify-content: center;
     width: inherit;
   }
+
+  .slider-wrapper {
+    border-radius: 3rem;
+    min-width: 70vw;
+    max-width: 75vw;
+    min-height: 65vh;
+
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+  }
 `;
+
+export const ProjectsWindowWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
 export const ProjectsWindow = styled.div`
   border-radius: 3rem;
-  width: 70vw;
-  height: 65vh;
+  overflow: hidden;
+  width: 58vw;
+  height: 60vh;
   position: relative;
+  text-align: end;
+
+  &:hover {
+    img {
+      transform: scale(1.2);
+    }
+
+    .background {
+      padding-left: 5rem;
+
+      @media (orientation: portrait) {
+        padding: 0 0 5rem 0;
+      }
+    }
+  }
+
+  .window-wrapper {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    height: 100%;
+
+    @media (orientation: portrait) {
+      grid-template-columns: 100%;
+      grid-template-rows: 40% 60%;
+    }
+  }
+
+  .image-side {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .image-wrapper-projects {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .background {
+        width: 70%;
+        height: 100%;
+        margin-right: auto;
+        display: inline;
+        background-color: rgba(0, 0, 0, 0.4);
+        border-right: 1px solid ${colors.first};
+        box-shadow: 0 0 10rem rgba(0, 0, 0, 1);
+
+        @media (orientation: portrait) {
+          width: 100%;
+          height: 40%;
+          margin-bottom: auto;
+          border-bottom: 1px solid ${colors.first};
+          border-right: 0;
+        }
+      }
+
+      img {
+        position: absolute;
+        max-width: 20vw;
+      }
+    }
+  }
+
+  .content-side {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+  }
+
+  .window-content-wrapper {
+    position: absolute;
+    bottom: 5%;
+    right: 15%;
+    display: grid;
+    grid-template-rows: 40% 1fr 1fr 1fr 1fr;
+
+    @media (orientation: portrait) {
+      /* bottom: 5%;
+      left: 5%;
+      right: 5%;
+      grid-template-rows: 20% 1fr 1fr 1fr 1fr; */
+
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      top: 0;
+
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+
+      text-align: center;
+    }
+  }
+
+  .title-wrapper {
+    grid-row-start: 3;
+    grid-row-end: 3;
+    margin-bottom: 2rem;
+
+    @media (orientation: portrait) {
+      grid-row-start: 2;
+      grid-row-end: 2;
+    }
+  }
+
+  .tech-icons {
+    margin: 0;
+  }
+
+  .title {
+    max-width: 90%;
+    margin: 0 0 0 10%;
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    font-weight: 800;
+
+    @media (orientation: portrait) {
+      max-width: 98%;
+      margin: 0;
+    }
+  }
+
+  .text {
+    grid-row-start: 4;
+    grid-row-end: 4;
+    font-weight: 400;
+
+    @media (orientation: portrait) {
+      font-size: clamp(1.6rem, 2vw, 1.8rem);
+      max-width: 80%;
+    }
+  }
+
+  @media (orientation: portrait) {
+    height: calc(65vh - 18rem);
+    width: 65vw;
+  }
 
   box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.5);
   background: linear-gradient(
@@ -944,22 +1130,25 @@ export const ProjectsWindow = styled.div`
   }
 `;
 export const ProjectsArrowRight = styled.div`
-  width: 6rem;
-  height: 6rem;
+  min-width: 6rem;
+  min-height: 6rem;
+  max-height: 6rem;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   position: relative;
+  margin-top: auto;
+  margin-bottom: auto;
 
   @media (orientation: portrait) {
     order: 1;
     margin-left: 10rem;
     margin-bottom: 2rem;
     margin-top: -2rem;
-    width: 8rem;
-    height: 8rem;
+    min-width: 8rem;
+    min-height: 8rem;
   }
 
   box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.5);
@@ -991,8 +1180,8 @@ export const ProjectsArrowRight = styled.div`
   }
 `;
 export const ProjectsArrowLeft = styled.div`
-  width: 6rem;
-  height: 6rem;
+  min-width: 6rem;
+  min-height: 6rem;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -1005,8 +1194,8 @@ export const ProjectsArrowLeft = styled.div`
     margin-right: 10rem;
     margin-bottom: -5rem;
     margin-top: 5rem;
-    width: 8rem;
-    height: 8rem;
+    min-width: 8rem;
+    min-height: 8rem;
   }
 
   box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.5);
@@ -1041,6 +1230,7 @@ export const ProjectsArrowLeft = styled.div`
 export const AboutWrapper = styled.div`
   width: 90vw;
   min-height: 75vh;
+  max-height: 75vh;
   color: white;
   display: flex;
   flex-direction: column;
@@ -1054,7 +1244,7 @@ export const AboutWrapper = styled.div`
 
 export const AboutHeader = styled.div``;
 
-export const AboutTitle = styled.h2`
+export const Title = styled.h2`
   font-weight: 700;
   letter-spacing: 0.05rem;
   position: relative;
@@ -1076,9 +1266,9 @@ export const AboutTitle = styled.h2`
 
 export const AboutContent = styled.div`
   width: 90vw;
-  height: 65vh;
+  height: 70vh;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   gap: 3rem;
 
@@ -1092,20 +1282,20 @@ export const AboutContent = styled.div`
 export const AboutText = styled.div`
   font-weight: 600;
   margin-top: -0.2rem;
-  text-align: center;
   max-width: 45%;
   line-height: 3rem;
 
+  p {
+    text-align: justify;
+  }
+
   @media (orientation: portrait) {
     max-width: 75vw;
-
-    p {
-      font-size: 2rem;
-    }
   }
 
   h1 {
     font-weight: 700;
+    text-align: center;
     margin-bottom: 5rem;
     letter-spacing: 0.2rem;
     transition: all 1s ${transitionPattern};
@@ -1114,7 +1304,7 @@ export const AboutText = styled.div`
     font-size: clamp(1.5rem, 4vw, 6rem);
 
     @media (orientation: portrait) {
-      font-size: clamp(1.5rem, 8vw, 10rem);
+      font-size: clamp(1.5rem, 8vw, 8rem);
     }
 
     &:hover {
@@ -1125,8 +1315,8 @@ export const AboutText = styled.div`
 
 export const AboutWindow = styled.div`
   border-radius: 3rem;
-  min-width: 50vmin;
-  height: 50vmin;
+  min-width: 40vmin;
+  height: 40vmin;
   position: relative;
   margin-left: 3rem;
   box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.5);
@@ -1145,7 +1335,7 @@ export const AboutWindow = styled.div`
   }
 
   .profile-wrapper {
-    height: 50vmin;
+    height: 40vmin;
     overflow: hidden;
     position: relative;
   }
@@ -1154,7 +1344,7 @@ export const AboutWindow = styled.div`
     position: absolute;
     width: 30vmin;
     bottom: -3rem;
-    left: 4rem;
+    left: 2rem;
   }
 
   &:hover {
@@ -1275,4 +1465,111 @@ export const FooterIcons = styled.div`
       filter: drop-shadow(0 0 2rem rgba(255, 255, 255, 0.5));
     }
   }
+`;
+
+export const ProjectsButtons = styled.div`
+  height: 10rem;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: auto;
+
+  grid-row-start: 5;
+  grid-row-end: 5;
+
+  @media (orientation: portrait) {
+    grid-row-start: 4;
+    grid-row-end: 4;
+    width: 55vw;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  :first-child {
+    position: relative;
+  }
+`;
+export const OpenProjectButton = styled.button`
+  all: unset;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  font-size: clamp(1.2rem, 1.5vw, 1.6rem);
+  letter-spacing: 0.05rem;
+  margin-left: 2rem;
+  width: clamp(12rem, 10vw, 30rem);
+  background: #fff;
+  box-shadow: 0px 0px 3rem 0rem rgba(255, 255, 255, 0.4);
+  border-radius: 2rem;
+  background-size: 100%;
+  cursor: pointer;
+  transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1);
+
+  position: relative;
+
+  @media (orientation: portrait) {
+    width: 25vw;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    margin-left: 0;
+  }
+
+  &:hover {
+    background-color: white;
+    letter-spacing: 0.1rem;
+    color: black;
+    box-shadow: 0px 0px 6rem 1rem rgba(255, 255, 255, 0.4);
+  }
+
+`;
+
+export const OpenGitHubButton = styled.button`
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  font-family: 'Poppins', sans-serif;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 600;
+  font-size: 1.6rem;
+  letter-spacing: 0.05rem;
+  width: clamp(12rem, 10vw, 30rem);
+  background: linear-gradient(
+    180deg,
+    ${colors.fourth} 0%,
+    ${colors.third} 50%,
+    ${colors.first} 100%
+  );
+  background-position: center top;
+  background-size: 100% auto;
+  -webkit-border-radius: 2vwn; /* Safari */
+  border-radius: 2vw; /* Standard */
+  box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1);
+  position: relative;
+  border: 0.3rem solid ${colors.first};
+  -webkit-border: 0.3rem solid ${colors.first};
+
+  @media (orientation: portrait) {
+    width: 25vw;
+    font-size: 2rem;
+  }
+
+  &:hover {
+    letter-spacing: 0.1rem;
+    box-shadow: 0.4rem 0.8rem 2rem rgba(0, 0, 0, 0.3);
+    background-position: center bottom;
+  }
+
+  
 `;
