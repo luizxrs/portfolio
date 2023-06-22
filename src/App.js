@@ -67,8 +67,9 @@ import nodejs from "./assets/svgs/nodejs.svg";
 import react from "./assets/svgs/react.svg";
 import vscode from "./assets/svgs/vscode.svg";
 import style from "./assets/svgs/style.svg";
-import profile from "./assets/imgs/profile.png";
 import purpleFullLogo from "./assets/svgs/purple-full-logo.svg";
+import pfpFirst from "./assets/imgs/pfp-1.png";
+import pfpSecond from "./assets/imgs/pfp-2.png";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
@@ -83,7 +84,6 @@ function App() {
   const [activeLink, setActiveLink] = useState("home");
   const [contactWindow, setContactWindow] = useState(false);
   const [openBurger, setOpenBurger] = useState(false);
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -223,7 +223,7 @@ function App() {
                       <img
                         alt="Myself"
                         className="my-photo"
-                        src="https://sun1-15.userapi.com/s/v1/ig2/XqMRlZ4_rjIXHbFagUGklAG7owWjqH4jDjAJvtyW7aAOn3JzcSuDnPIsidWFxtrE5_RDLjyrl-4_zLsk3qh__J9M.jpg?size=400x400&quality=95&crop=144,0,629,629&ava=1"
+                        src={pfpFirst}
                       />
                     </div>
                     <div className="shadow-overlay" />
@@ -274,7 +274,7 @@ function App() {
                           className="icon"
                           onClick={() =>
                             window.open(
-                              "https://www.linkedin.com/in/luiz-souza-a6b128162/",
+                              "https://www.linkedin.com/in/luizsouzadev",
                               "_blank"
                             )
                           }
@@ -317,7 +317,9 @@ function App() {
                   Parte <PurpleTint>Lógica</PurpleTint>
                 </h4>
                 <Paragraph>
-                  Procuro buscar, pesquisar e ler até resolver o problema, se você está procurando um desenvolvedor capaz de encontrar soluções inteligentes e modernas estou aqui para ajudar. 
+                  Procuro buscar, pesquisar e ler até resolver o problema, se
+                  você está procurando um desenvolvedor capaz de encontrar
+                  soluções inteligentes e modernas estou aqui para ajudar.
                 </Paragraph>
               </ExperiencesLogic>
               <ExperiencesDesign className="content-wrapper">
@@ -329,10 +331,11 @@ function App() {
                   <PurpleTint>Ui/Ux</PurpleTint> Design
                 </h4>
                 <Paragraph>
-                  Com paixão pelo design, crio interfaces que
-                  encantam os usuários visualmente e de forma responsiva. Trabalho com Styled Components, Tailwind
-                  CSS e Figma para o design. Posso criar algo especial que certamente vai agradar sem medo
-                  de arriscar novas tecnologias.
+                  Com paixão pelo design, crio interfaces que encantam os
+                  usuários visualmente e de forma responsiva. Trabalho com
+                  Styled Components, Tailwind CSS e Figma para o design. Posso
+                  criar algo especial que certamente vai agradar sem medo de
+                  arriscar novas tecnologias.
                 </Paragraph>
               </ExperiencesDesign>
               <ExperiencesTech className="content-wrapper">
@@ -347,8 +350,9 @@ function App() {
                   Sendo do meu foco ReactJS para o front-end e NodeJS para o
                   back-end, consigo me adequar a qualquer outra necessidade e
                   não tenho medo de aprender coisas novas. Para a estilização
-                  uso Styled-Components e Tailwind CSS. Fiz projetos internos usando FireBase com autenticação de
-                  usuários e React Router. E por seguinte planejo também me aprofundar em React Native!
+                  uso Styled-Components e Tailwind CSS. Fiz projetos internos
+                  usando FireBase com autenticação de usuários e React Router. E
+                  por seguinte planejo também me aprofundar em React Native!
                 </Paragraph>
               </ExperiencesTech>
             </ExperiencesContent>
@@ -384,7 +388,7 @@ function App() {
             </ExperiencesIconsWrapper>
           </ExperiencesWrapper>
         </section>
-        <section  id="projects">
+        <section id="projects">
           <ProjectsWrapper>
             <ProjectsHeader>
               <ProjectsTitle>
@@ -393,7 +397,7 @@ function App() {
             </ProjectsHeader>
             <ProjectsContent>
               <div className="slider-wrapper">
-                <SimpleSlider ></SimpleSlider>
+                <SimpleSlider></SimpleSlider>
               </div>
             </ProjectsContent>
           </ProjectsWrapper>
@@ -409,7 +413,7 @@ function App() {
             <AboutContent>
               <AboutWindow>
                 <div className="profile-wrapper">
-                  <img src={profile} alt="profile pic"></img>
+                  <img src={pfpSecond} alt="profile pic"></img>
                 </div>
               </AboutWindow>
               <AboutText>
@@ -417,22 +421,18 @@ function App() {
                   dangerouslySetInnerHTML={{ __html: "&lt;LuizGustavo/&gt;" }}
                 ></h1>
                 <Paragraph>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-                  eu odio condimentum, commodo lacus quis, semper turpis. Mauris
-                  vel dolor non massa tempor <PurpleTint>porta et </PurpleTint>
-                  tempus diam. Morbi dapibus pharetra augue, ut semper nibh
-                  cursus sit amet. Proin rutrum magna eget rhoncus egestas.
-                  Vestibulum tincidunt iaculis commodo. Integer dapibus augue
-                  quis metus sagittis iaculis. Proin nec tincidunt quam, eu{" "}
-                  <PurpleTint>commodo risus.</PurpleTint> Vestibulum sodales
-                  lectus vitae ligula eleifend, ut porta massa pulvinar. Quisque
-                  pulvinar lacus in arcu tincidunt ultrices. amet. Proin
+                  Sou um <PurpleTint>desenvolvedor</PurpleTint> web de 15 anos, apaixonado por
+                  programação desde criança. Meu foco principal é o <PurpleTint>ReactJS</PurpleTint>, com
+                  experiência em criar interfaces modernas e interativas. Busco
+                  constantemente <PurpleTint>aprimorar</PurpleTint> minhas habilidades e colaborar em
+                  projetos inovadores. Estou pronto para fazer a diferença como
+                  um desenvolvedor web <PurpleTint>dedicado</PurpleTint> e cheio de energia.
                 </Paragraph>
               </AboutText>
             </AboutContent>
           </AboutWrapper>
         </section>
-        <Footer >
+        <Footer>
           <FooterContent>
             <FooterTitle>
               <PurpleTint>Gostou?</PurpleTint> dê uma olhada nas minhas redes!
@@ -463,7 +463,7 @@ function App() {
                 className="icon"
                 onClick={() =>
                   window.open(
-                    "https://www.linkedin.com/in/luiz-souza-a6b128162/",
+                    "https://www.linkedin.com/in/luizsouzadev",
                     "_blank"
                   )
                 }

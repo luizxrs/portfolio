@@ -1344,7 +1344,6 @@ export const AboutWindow = styled.div`
     position: absolute;
     width: 30vmin;
     bottom: -3rem;
-    left: 2rem;
   }
 
   &:hover {
