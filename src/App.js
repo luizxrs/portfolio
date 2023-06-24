@@ -78,6 +78,8 @@ import React, { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SimpleSlider from "../src/components/projects.js";
+import resumeFile from './assets/files/Luiz Souza - Currículo.docx';
+
 
 function App() {
   const [fix, setFix] = useState(false);
@@ -119,6 +121,14 @@ function App() {
   const handleToggle = () => {
     setOpenBurger(!openBurger);
   };
+
+  const handleDownload = () => {
+    const downloadLink = document.createElement('a');
+    downloadLink.href = resumeFile;
+    downloadLink.download = 'Luiz Souza - Currículo.docx';
+    downloadLink.click();
+  };
+  
 
   const setFixed = () => {
     if (window.scrollY > 10) {
@@ -294,7 +304,7 @@ function App() {
                       </ContactWindowWrapper>
                     </ContactWindow>
                   </div>
-                  <DownloadCv>Baixar CV</DownloadCv>
+                  <DownloadCv onClick={handleDownload}>Baixar CV</DownloadCv>
                 </HomeButtons>
               </HomeRightSide>
             </HomeContentWrapper>
