@@ -78,7 +78,7 @@ import React, { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SimpleSlider from "../src/components/projects.js";
-import resumeFile from './assets/files/Luiz Souza - Currículo.docx';
+import resumeFile from './assets/files/Luiz Souza - Currículo.p';
 
 
 function App() {
@@ -125,7 +125,7 @@ function App() {
   const handleDownload = () => {
     const downloadLink = document.createElement('a');
     downloadLink.href = resumeFile;
-    downloadLink.download = 'Luiz Souza - Currículo.docx';
+    downloadLink.download = 'Luiz Souza - Currículo.pdf';
     downloadLink.click();
   };
   
