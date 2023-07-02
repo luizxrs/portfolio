@@ -78,8 +78,9 @@ import React, { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SimpleSlider from "../src/components/projects.js";
-import resumeFile from './assets/files/Luiz Souza - Currículo.pdf';
-
+import resumeFile from "./assets/files/Luiz Souza - Currículo.pdf";
+import { Slot } from "@radix-ui/react-slot";
+import { SocialButton } from "./components/SocialButton";
 
 function App() {
   const [fix, setFix] = useState(false);
@@ -123,12 +124,11 @@ function App() {
   };
 
   const handleDownload = () => {
-    const downloadLink = document.createElement('a');
+    const downloadLink = document.createElement("a");
     downloadLink.href = resumeFile;
-    downloadLink.download = 'Luiz Souza - Currículo.pdf';
+    downloadLink.download = "Luiz Souza - Currículo.pdf";
     downloadLink.click();
   };
-  
 
   const setFixed = () => {
     if (window.scrollY > 10) {
@@ -139,6 +139,11 @@ function App() {
   };
 
   window.addEventListener("scroll", setFixed);
+
+  function Button({ asChild, ...props }) {
+    const SocialBtn = asChild ? Slot : "button";
+    return <SocialBtn {...props} />;
+  }
 
   return (
     <>
@@ -230,11 +235,7 @@ function App() {
                 <HomeProfilePicture>
                   <div className="image-container">
                     <div className="photo-wrapper">
-                      <img
-                        alt="Myself"
-                        className="my-photo"
-                        src={pfpFirst}
-                      />
+                      <img alt="Myself" className="my-photo" src={pfpFirst} />
                     </div>
                     <div className="shadow-overlay" />
                   </div>
@@ -262,45 +263,31 @@ function App() {
                     </ContactMeButton>
                     <ContactWindow isOpen={contactWindow}>
                       <ContactWindowWrapper>
-                        <MdEmail
+                        <SocialButton
+                          icon={MdEmail}
+                          link={"https://mailto:lgustavoitp@gmail.com"}
                           className="icon"
-                          onClick={() =>
-                            window.open(
-                              "https://mailto:lgustavoitp@gmail.com",
-                              "_blank"
-                            )
-                          }
-                        />
-                        <BsDiscord
+                        ></SocialButton>
+                        <SocialButton
+                          icon={BsDiscord}
+                          link={"https://discordapp.com/users/490654525175365632"}
                           className="icon"
-                          onClick={() =>
-                            window.open(
-                              "https://discordapp.com/users/490654525175365632",
-                              "_blank"
-                            )
-                          }
-                        />
-                        <BsLinkedin
+                        ></SocialButton>
+                        <SocialButton
+                          icon={BsLinkedin}
+                          link={"https://www.linkedin.com/in/luizsouzadev"}
                           className="icon"
-                          onClick={() =>
-                            window.open(
-                              "https://www.linkedin.com/in/luizsouzadev",
-                              "_blank"
-                            )
-                          }
-                        />
-                        <BsGithub
+                        ></SocialButton>
+                        <SocialButton
+                          icon={BsGithub}
+                          link={"https://github.com/luizxrs"}
                           className="icon"
-                          onClick={() =>
-                            window.open("https://github.com/luizxrs", "_blank")
-                          }
-                        />
-                        <BsWhatsapp
+                        ></SocialButton>
+                        <SocialButton
+                          icon={BsWhatsapp}
+                          link={"https://wa.me/5547997711685"}
                           className="icon"
-                          onClick={() =>
-                            window.open("https://wa.me/5547997711685", "_blank")
-                          }
-                        />
+                        ></SocialButton>
                       </ContactWindowWrapper>
                     </ContactWindow>
                   </div>
@@ -431,12 +418,14 @@ function App() {
                   dangerouslySetInnerHTML={{ __html: "&lt;LuizGustavo/&gt;" }}
                 ></h1>
                 <Paragraph>
-                  Sou um <PurpleTint>desenvolvedor</PurpleTint> web de 15 anos, apaixonado por
-                  programação desde criança. Meu foco principal é o <PurpleTint>ReactJS</PurpleTint>, com
-                  experiência em criar interfaces modernas e interativas. Busco
-                  constantemente <PurpleTint>aprimorar</PurpleTint> minhas habilidades e colaborar em
-                  projetos inovadores. Estou pronto para fazer a diferença como
-                  um desenvolvedor web <PurpleTint>dedicado</PurpleTint> e cheio de energia.
+                  Sou um <PurpleTint>desenvolvedor</PurpleTint> web de 15 anos,
+                  apaixonado por programação desde criança. Meu foco principal é
+                  o <PurpleTint>ReactJS</PurpleTint>, com experiência em criar
+                  interfaces modernas e interativas. Busco constantemente{" "}
+                  <PurpleTint>aprimorar</PurpleTint> minhas habilidades e
+                  colaborar em projetos inovadores. Estou pronto para fazer a
+                  diferença como um desenvolvedor web{" "}
+                  <PurpleTint>dedicado</PurpleTint> e cheio de energia.
                 </Paragraph>
               </AboutText>
             </AboutContent>

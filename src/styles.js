@@ -468,7 +468,7 @@ export const ContactMeButton = styled.button`
   background-size: 100% 200%;
   background-position-y: 0%;
   border-radius: 3rem;
-  box-shadow: .5rem .5rem 3rem rgba(0, 0, 0, 0.3);
+  box-shadow: 0.5rem 0.5rem 3rem rgba(0, 0, 0, 0.3);
   cursor: pointer;
   transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1);
   position: relative;
@@ -485,8 +485,6 @@ export const ContactMeButton = styled.button`
     box-shadow: 0.4rem 0.8rem 2rem rgba(0, 0, 0, 0.3);
     background-position-y: 100%;
   }
-
-  
 `;
 
 export const ContactWindowWrapper = styled.div`
@@ -507,26 +505,30 @@ export const ContactWindowWrapper = styled.div`
     row-gap: 0;
   }
 
-  svg {
-    width: 1.5vw;
-    height: 1.5vw;
-    color: ${colors.fourth};
-    cursor: pointer;
+  .button {
+    all:  unset;
+  }
 
-    @media (orientation: portrait) {
-      width: 5vw;
-      height: 5vw;
-    }
+  .icon {
+      width: 1.5vw;
+      height: 1.5vw;
+      color: ${colors.fourth};
+      cursor: pointer;
 
-    &:hover {
-      color: ${colors.first};
-      filter: drop-shadow(0 0 2rem rgba(255, 255, 255, 0.5));
+      @media (orientation: portrait) {
+        width: 5vw;
+        height: 5vw;
+      }
+
+      &:hover {
+        color: ${colors.first};
+        filter: drop-shadow(0 0 2rem rgba(255, 255, 255, 0.5));
     }
   }
 `;
 
 export const ContactWindow = styled.div`
-  border: .2rem solid ${colors.first};
+  border: 0.2rem solid ${colors.first};
   height: ${(props) => (props.isOpen ? "12rem" : "0")};
   overflow: hidden;
   display: flex;
@@ -1524,7 +1526,6 @@ export const OpenProjectButton = styled.button`
     color: black;
     box-shadow: 0px 0px 6rem 1rem rgba(255, 255, 255, 0.4);
   }
-
 `;
 
 export const OpenGitHubButton = styled.button`
@@ -1532,7 +1533,7 @@ export const OpenGitHubButton = styled.button`
   padding: 0;
   border: none;
   background-color: transparent;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   height: 5rem;
   display: flex;
   justify-content: center;
@@ -1569,6 +1570,4 @@ export const OpenGitHubButton = styled.button`
     box-shadow: 0.4rem 0.8rem 2rem rgba(0, 0, 0, 0.3);
     background-position: center bottom;
   }
-
-  
 `;
