@@ -61,11 +61,12 @@ import brain from "./assets/svgs/brain.svg";
 import pencil from "./assets/svgs/pencil.svg";
 import tech from "./assets/svgs/tech.svg";
 import figma from "./assets/svgs/figma.svg";
+import mongodb from "./assets/svgs/mongodb.svg";
 import firebase from "./assets/svgs/firebase.svg";
-import javascript from "./assets/svgs/javascript.svg";
+import typescript from "./assets/svgs/typescript.svg";
 import nodejs from "./assets/svgs/nodejs.svg";
 import react from "./assets/svgs/react.svg";
-import vscode from "./assets/svgs/vscode.svg";
+import nextjs from "./assets/svgs/nextjs.svg";
 import style from "./assets/svgs/style.svg";
 import purpleFullLogo from "./assets/svgs/purple-full-logo.svg";
 import pfpFirst from "./assets/imgs/pfp-1.png";
@@ -344,23 +345,23 @@ function App() {
                   <PurpleTint>Técnologias</PurpleTint> que uso!
                 </h4>
                 <Paragraph>
-                  Sendo do meu foco ReactJS para o front-end e NodeJS para o
+                  Sendo do meu foco ReactJS com NextJS, e NodeJS para o
                   back-end, consigo me adequar a qualquer outra necessidade e
                   não tenho medo de aprender coisas novas. Para a estilização
                   uso Styled-Components e Tailwind CSS. Fiz projetos internos
-                  usando FireBase com autenticação de usuários e React Router. E
+                  usando FireBase com autenticação de usuários e Next Router. E
                   por seguinte planejo também me aprofundar em React Native!
                 </Paragraph>
               </ExperiencesTech>
             </ExperiencesContent>
             <ExperiencesIconsWrapper>
               <ExperiencesIcon>
-                <img src={figma} alt="figma logo"></img>
-                <Paragraph>Figma</Paragraph>
+                <img src={mongodb} alt="mongodb logo"></img>
+                <Paragraph>MongoDB</Paragraph>
               </ExperiencesIcon>
               <ExperiencesIcon>
-                <img src={vscode} alt="vscode logo"></img>
-                <Paragraph>Vscode</Paragraph>
+                <img src={nextjs} alt="nextjs logo"></img>
+                <Paragraph>NextJS</Paragraph>
               </ExperiencesIcon>
               <ExperiencesIcon>
                 <img src={react} alt="React logo"></img>
@@ -371,8 +372,8 @@ function App() {
                 <Paragraph>Styled Components + Tailwind</Paragraph>
               </ExperiencesIcon>
               <ExperiencesIcon>
-                <img src={javascript} alt="javascript logo"></img>
-                <Paragraph>JavaScript</Paragraph>
+                <img src={typescript} alt="typescript logo"></img>
+                <Paragraph>Typescript</Paragraph>
               </ExperiencesIcon>
               <ExperiencesIcon>
                 <img src={nodejs} alt="nodejs logo"></img>
@@ -420,7 +421,7 @@ function App() {
                 <Paragraph>
                   Sou um <PurpleTint>desenvolvedor</PurpleTint> web de 15 anos,
                   apaixonado por programação desde criança. Meu foco principal é
-                  o <PurpleTint>ReactJS</PurpleTint>, com experiência em criar
+                  o <PurpleTint>NextJS</PurpleTint>, com experiência em criar
                   interfaces modernas e interativas. Busco constantemente{" "}
                   <PurpleTint>aprimorar</PurpleTint> minhas habilidades e
                   colaborar em projetos inovadores. Estou pronto para fazer a
