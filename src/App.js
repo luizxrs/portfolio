@@ -419,7 +419,7 @@ function App() {
                   dangerouslySetInnerHTML={{ __html: "&lt;LuizGustavo/&gt;" }}
                 ></h1>
                 <Paragraph>
-                  Sou um <PurpleTint>desenvolvedor</PurpleTint> web de 15 anos,
+                  Sou um <PurpleTint>desenvolvedor</PurpleTint> full-stack,
                   apaixonado por programação desde criança. Meu foco principal é
                   o <PurpleTint>NextJS</PurpleTint>, com experiência em criar
                   interfaces modernas e interativas. Busco constantemente{" "}
